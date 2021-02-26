@@ -1,0 +1,88 @@
+.login{
+    // border: 1px solid black;
+    background-color: #F7F7F7;
+    display: flex;
+    align-items: flex-start;
+}
+.img-container{
+    // border: 1px solid black;
+    // content: url('../assets/Image\ 11@2x.png');
+    background-color: white;
+    width: 50%;
+    position: relative;
+    
+}
+.img1{
+    content: url('../assets/Image\ 11@2x.png');
+    width: 95%;
+    // position: relative;
+}
+.inputs{
+    justify-content: center;
+    align-items: center;
+    // border: 1px solid black;
+    
+    position: relative;
+    top: 190px;
+    left: 13%;
+    // left: 10px;
+    padding: 10px;
+    // padding-left: 155px;
+    // padding-top: 155px;
+    flex-direction: column;
+}
+.l1{
+    content: url('../assets/BridgeLabzVirtual@2x.png');
+    width: 78px;
+}
+.eye1{
+    content: url('../assets/eye-off.svg');
+    position: relative;
+    top: -35px;
+    left: 195px;
+    opacity: 0.3;
+    width: 20px;
+    height: 20px;
+    cursor: default;
+}
+#outlined-basic,#outlined-basic1{
+    width: 302px;
+    height: 13px;
+    outline: none;
+}
+button{
+    width: 329px;
+    height: 53px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #008CFF;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.frgt{
+   font-size: 12px;
+   position: relative;
+   left: 115px;
+}
+.hdr1{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.hdr2{
+    font-size: 12px;
+}
+@media (max-width:863px){
+    .img-container{
+        display: none;
+    }
+    .login{
+        align-items: flex-start;
+    }
+    .inputs{
+        // position: relative;
+        // left: 195px;
+        flex-direction: column;
+    }
+}
