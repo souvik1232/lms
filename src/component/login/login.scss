@@ -10,12 +10,14 @@
     background-color: white;
     width: 50%;
     position: relative;
+    height: 930px;
     
 }
 .img1{
     content: url('../assets/Image\ 11@2x.png');
-    width: 95%;
-    // position: relative;
+    width: 70%;
+    position: relative;
+    top: 190px;
 }
 .inputs{
     justify-content: center;
@@ -79,10 +81,42 @@ button{
     }
     .login{
         align-items: flex-start;
+        height: 900px;
     }
     .inputs{
-        // position: relative;
-        // left: 195px;
         flex-direction: column;
+    }
+    .eye1{
+        position: relative;
+        left: 215px;
+    }
+    .frgt{
+        position: relative;
+        left: 150px;
+    }
+    .hdr2{
+        font-size: 15px;
+    }
+}
+@media (max-width:863px){
+    .inputs{
+        // border: 1px solid black;
+        padding-right: 20px;
+        margin-left: -30px;
+        margin-right: 5px;
+        margin-top: -20px;
+    }
+    #outlined-basic,#outlined-basic1{
+        width: 390px;
+        height: 13px;
+        // outline: none;
+    }
+    button{
+        width: 410px;
+    }
+}
+@media (max-width:500px){
+    .login{
+        background-color: white;
     }
 }

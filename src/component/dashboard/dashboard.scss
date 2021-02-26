@@ -1,0 +1,41 @@
+.container{
+    border: 1px solid #DEE5EE;
+    display: flex;
+
+}
+.sidebar{
+    // padding: 10px;
+    border: 2px solid #DEE5EE;
+    justify-content: center;
+    text-align: left;
+    width: 195px;
+    height: 900px;
+}
+.i1{
+    content: url('../assets/BridgeLabzVirtual.png');
+    width: 78px;
+    position: relative;
+    left: 50px;
+}
+.i2{
+    content: url('../assets/Group\ 3621.svg');
+    position: relative;
+    right: 15px;
+}
+.tabs{
+    width: 194px;
+    height: 41px;
+    border: 1px solid #DEE5EE;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 41px;
+    color: #40494D;
+    font-size: 13px;
+}
+.tabs:hover{
+    color: #008CFF;
+    background-color: #E4F3FF;
+    border-left:3px solid #008CFF;
+    font-weight: bolder;
+
+}
