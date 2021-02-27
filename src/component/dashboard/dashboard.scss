@@ -1,6 +1,22 @@
+div{
+    position: relative;
+}
 .container{
     border: 1px solid #DEE5EE;
     display: flex;
+    align-items:flex-start;
+    position: relative;
+
+}
+.details{
+    position: absolute;
+    top: 15%;
+    left: 19%;
+    // border: 1px solid #DEE5EE;
+    padding: 25px;
+    text-align: left;
+    display: flex;
+    // width: 100px;
 
 }
 .sidebar{
@@ -8,34 +24,160 @@
     border: 2px solid #DEE5EE;
     justify-content: center;
     text-align: left;
-    width: 195px;
-    height: 900px;
+    width: 235px;
+    height: 940px;
+    flex-basis: auto;
 }
 .i1{
     content: url('../assets/BridgeLabzVirtual.png');
     width: 78px;
     position: relative;
-    left: 50px;
+    left: 75px;
 }
 .i2{
     content: url('../assets/Group\ 3621.svg');
     position: relative;
-    right: 15px;
+    right: 19px;
 }
 .tabs{
-    width: 194px;
+    width: 234px;
     height: 41px;
-    border: 1px solid #DEE5EE;
+    border-left: 1px solid #DEE5EE;
     text-align: center;
     vertical-align: middle;
     line-height: 41px;
     color: #40494D;
     font-size: 13px;
+    font-weight: 500;
+}
+#tab1{
+    border-top:1px solid #DEE5EE; ;
 }
 .tabs:hover{
     color: #008CFF;
     background-color: #E4F3FF;
     border-left:3px solid #008CFF;
     font-weight: bolder;
+}
+.navbar{
+    border: 1px solid #DEE5EE;
+    border-left: 0px;
+    width: 1972px;
+    height: 78px;
+}
+.card{
+    width: 275px;
+    height: 113px;
+    border: 1px solid #DEE5EE;
+    border-radius: 12px;
+    padding: 10px;
+    position: relative;
+    right: 10px;
+    margin: 9px;
+    display: flex;
+    z-index: 0;
+}
+.card:hover{
+    box-shadow: 0px 3px 6px #00000029;
+    transition: 0.5s;
+}
+.card-head{
+    font-size: 15px;
+    font-weight: 500;
+    color: #40494D;
+}
+.dot{
+    content: url('../assets/ic_more_vert_24px.svg');
+    position: relative;
+    left:49px;
+    // border: 1px solid black;
+    width: 3px;
+    padding-left: 6.5px;
+    padding-right: 6.5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 9px;
+    background-color: #F5F5F5;
+}
+.contain{
+    display: flex;
+}
+.a1{
+    // position: relative;
+    left: 55px;
+    font-size: 16px;
+    // border: 1px solid black;
+    // width: 5px;
+    align-items: center;
+}
+.b1{
+    font-size: 12px;
+    color: #666D70;
+    position: relative;
+    right: 10px;
+}
+.line{
+    border: 1px solid #DEE5EE;
+    position: relative;
+    left: 99px;
+}
+.a2{
+    position: relative;
+    left: 155px;
+    font-size: 16px;
+    // border: 1px solid black;
+}
+.b2{
+    font-size: 12px;
+    color: #666D70;
+    position: relative;
+    right: 19px;
+}
+.tooltip{
+    z-index: 1;
+    width: 138px;
+    height: 80px;
+    border: 1px solid #F2F5F7;
+    box-shadow: 0px 3px 6px #00000029;
+    // opacity: 1;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    text-align: left;
+}
+.tool1,.tool2{
+    padding-left: 40px;
 
+    font-size: 14px;
+    color:#658292;
+    // border: 1px solid black;
+}
+.tool1{
+    position: relative;
+    top: 10px;
+}
+.tool2{
+    position: relative;
+    top: 15px;
+}
+.t1{
+    position: absolute;
+    top: -20px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #40494D;
+}
+@media (max-width:1200px){
+    .sidebar{
+        width: 200px;
+    }
+    .tabs{
+        width: 200px;
+    }
+}
+@media (max-width:780px){
+    .details{
+        display: block;
+        position:absolute;
+        left: 250px;
+        flex-direction: column;
+    }
 }
