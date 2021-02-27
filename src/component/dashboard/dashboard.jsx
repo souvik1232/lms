@@ -26,7 +26,7 @@ export default class dashboard extends Component {
             return <Redirect to='/login' />
         }
         return (
-            <div>
+            <div className='contain-container'>
                 <div className='container'>
                     <div className='sidebar'>
                         <img className='i1' /><br />
