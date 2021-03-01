@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import Overlay from "react-bootstrap/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
 import Modal from "react-bootstrap/Modal";
+import ModalHeader from 'react-bootstrap/ModalHeader'
+import ModalTitle from 'react-bootstrap/ModalTitle'
 
 export default class mentor extends Component {
     constructor(props) {
@@ -55,11 +57,12 @@ export default class mentor extends Component {
 
                 <Modal
                     {...this.props}
-                    size="lg"
+                    show={this.state.modalShow}
+                    size="sm"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                 >
-                    <Modal.Header closeButton>
+                    <Modal.Header >
                         <Modal.Title id="contained-modal-title-vcenter">
                             Modal heading
         </Modal.Title>
@@ -73,7 +76,7 @@ export default class mentor extends Component {
         </p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={()=>this.setState({modalShow:false})}>Close</Button>
+                        <Button className='ab2' onClick={()=>this.setState({modalShow:false})}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </div>

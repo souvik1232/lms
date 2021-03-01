@@ -2,6 +2,13 @@ Table{
     padding: 15px;
     width: 1400px;
     position: relative;
-    right: 100px;
-    border: 1px solid black;
+    right: 120px;
+    // border: 1px solid black;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px ;
+    background-color: blanchedalmond;
+}
+thead{
+    background-color: #12324B;
+    color: white;
 }
