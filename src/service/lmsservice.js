@@ -7,4 +7,7 @@ export default class LmsService {
     loginlms = (data) =>{
         return axiosService.Post('login/',data)
     }
+    getdashboard = ()=>{
+        
+    }
 }
