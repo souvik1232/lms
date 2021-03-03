@@ -38,7 +38,9 @@
     font-size: 18px;
     position: relative;
     top: -15px;
-    z-index: 1
+    z-index: 1;
+    position: relative;
+    left: 41px;
 }
 .dig-container{
     // display: flex;
@@ -50,4 +52,40 @@
 #outlined-basic2{
     width: 300px;
     height: 15px;
+}
+.but-container{
+    display: flex;
+    position: relative;
+    left: 42px;
+    justify-content: center;
+}
+.bu1{
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    width: 122px;
+    height: 40px;
+    color: #658292;
+    font-size: 18px;
+    font-weight: 100;
+}
+.bu2{
+    background: #008CFF 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    width: 122px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 100
+}
+#simple-menu{
+    // z-index: 1;
+    width: 200px;
+}
+#outlined-basic-drop{
+    width: 285px;
+    height: 17px;
+    padding:20px;
+    display: flex;
+    
 }

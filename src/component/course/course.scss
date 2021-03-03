@@ -1,0 +1,36 @@
+.card-course{
+    border-radius: 11px;
+    position: relative;
+    right: 110px;
+    width: 255px;
+    height: 203px;
+    
+}
+.card-head1{
+    background-color: #F5F5F5;
+    width: 255px;
+    height: 85px;
+    padding: 10px;
+    position: relative;
+    top: -10px;
+    right: 10px;
+    border: 1px solid #DEE5EE;
+    border-radius: 11px;
+    color: #40494D;
+    font-size: 16px;
+}
+.in-div{
+    display: flex;
+    
+    justify-content: space-between;
+    // border:1px solid black;
+}
+#outlined-basic3{
+    
+    width: 130px;
+    height: 15px;
+}
+#outlined-basic4{
+    width: 300px;
+    height: 70px;
+}

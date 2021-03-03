@@ -8,8 +8,10 @@ import Snackbar from "@material-ui/core/Snackbar";
 import './login.scss'
 import Login from '../../service/lmsservice'
 import { Redirect } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {logged} from '../../action/action'
 const loginlms = new Login();
-export default class login extends Component {
+class login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,6 +35,8 @@ export default class login extends Component {
         }
     }
     handlelogin = () => {
+        const {dispatch} = this.props;
+        
         let req = {
             username: this.state.username,
             password: this.state.password
@@ -40,8 +44,8 @@ export default class login extends Component {
         loginlms.loginlms(req).then((data) => {
             // console.log(data.headers.get('authorization'));
             console.log(data);
-
-            localStorage.setItem("token",data.data.username)
+            dispatch(logged(data.headers.authorization))
+            localStorage.setItem("token",data.headers.authorization)
             this.setState({ snackbaropen: true, snackbarmsg: 'Logged In' })
             this.setState({
                 loggedIn:true
@@ -66,7 +70,7 @@ export default class login extends Component {
         },
     });
 
-
+    
     render() {
         if(this.state.loggedIn){
             return <Redirect to='/dashboard'/>
@@ -99,3 +103,4 @@ export default class login extends Component {
         )
     }
 }
+export default connect()(login)
