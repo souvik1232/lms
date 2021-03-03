@@ -6,4 +6,7 @@ export default class Axios{
         // console.log(token);
         return axios.post(baseurl+url,data)
     }
+    Get(url){
+        return axios.get(baseurl+url)
+    }
 }

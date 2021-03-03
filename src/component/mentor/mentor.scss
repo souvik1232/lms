@@ -26,3 +26,28 @@
     border-radius: 9px;
     background-color: #F5F5F5;
 }
+.tip{
+    background: #008CFF 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    width: 257px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    top: -15px;
+    z-index: 1
+}
+.dig-container{
+    // display: flex;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#outlined-basic2{
+    width: 300px;
+    height: 15px;
+}

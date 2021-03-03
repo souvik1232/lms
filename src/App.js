@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import {BrowserRouter as Router, Route,Switch,Link } from 'react-router-dom';
+// import logo from './logo.svg';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 import Login from './component/login/login'
 import Dashboard from './component/dashboard/dashboard'

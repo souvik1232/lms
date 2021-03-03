@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+// import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import './student.scss'
 
@@ -30,13 +30,17 @@ export default class student extends Component {
                     <Button className='buto1'>Add Student</Button>
                     <div className='t1'>STUDENT DETAILS</div>
 
-                    <Table striped bordered hover variant="dark">
+                    {/* <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
+                                <th>Student ID</th>
+                                <th>Name</th>
+                                <th>Email ID</th>
+                                <th>Mobile No.</th>
+                                <th>Course</th>
+                                <th>Mentor</th>
+                                <th>Score</th>
+                                <th>Week</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +62,7 @@ export default class student extends Component {
                                 <td>@twitter</td>
                             </tr>
                         </tbody>
-                    </Table>
+                    </Table> */}
                 </div>
             </div>
         )

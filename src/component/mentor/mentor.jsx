@@ -1,13 +1,16 @@
 import React, { Component, createRef } from 'react'
 import { Redirect } from 'react-router-dom'
+import {
+    ThemeProvider,
+    createMuiTheme,
+} from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import './mentor.scss'
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Overlay from "react-bootstrap/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
-import Modal from "react-bootstrap/Modal";
-import ModalHeader from 'react-bootstrap/ModalHeader'
-import ModalTitle from 'react-bootstrap/ModalTitle'
+import Dialog from '@material-ui/core/Dialog';
 
 export default class mentor extends Component {
     constructor(props) {
@@ -18,12 +21,33 @@ export default class mentor extends Component {
             loggedIn = false
         }
         this.state = {
-            modalShow: false,
             show: false,
+            open:false,
             loggedIn
         }
 
     }
+
+    theme = createMuiTheme({
+        palette: {
+            primary: {
+                main: '#008CFF',
+            }
+        },
+    });
+
+
+    handleClickOpen = (e) => {
+        // e.stopPropagation();
+        this.setState({
+            open: !this.state.open,
+        })
+    };
+
+
+    handleClose = () => {
+        this.setState({ open: false })
+    };
     target = createRef(null)
     render() {
         if (this.state.loggedIn === false) {
@@ -33,12 +57,12 @@ export default class mentor extends Component {
             <div>
 
                 <div className='details'>
-                    <Button className='buto1' onClick={() => this.setState({ modalShow: !this.state.modalShow })}>Add Mentor</Button>
+                    <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     <div className='t1'>MENTOR DETAILS</div>
 
                     <Card className='card-mentor'>
                         <Card.Body>
-                            <div className='card-head'>Mentor Name <img className='dot1' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /></div><br /><br />
+                            <div className='card-head'>Mentor Name <img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /></div><br /><br />
 
                         </Card.Body>
                     </Card>
@@ -55,30 +79,18 @@ export default class mentor extends Component {
                 </Overlay>
 
 
-                <Modal
-                    {...this.props}
-                    show={this.state.modalShow}
-                    size="sm"
-                    aria-labelledby="contained-modal-title-vcenter"
-                    centered
-                >
-                    <Modal.Header >
-                        <Modal.Title id="contained-modal-title-vcenter">
-                            Modal heading
-        </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h4>Centered Modal</h4>
-                        <p>
-                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                            consectetur ac, vestibulum at eros.
-        </p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button className='ab2' onClick={()=>this.setState({modalShow:false})}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
+                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
+                    <div className='dig-container'>
+                        <div className='tip'>Add Mentor</div>
+                        <div><ThemeProvider theme={this.theme}>
+                        <TextField id="outlined-basic2" size='small' label="Mentor ID" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                        <TextField id="outlined-basic2" size='small' label="Name" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                        <TextField id="outlined-basic2" size='small' label="Email Id" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                        <TextField id="outlined-basic2" size='small' label="Mobile Number" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                        <TextField type='text' size='small' id="outlined-basic2" label="Course" variant="outlined" onChange={(e) => { this.setState({ password: e.target.value }) }} /><br />
+                    </ThemeProvider></div>
+                    </div>
+                    </Dialog>
             </div>
         )
     }

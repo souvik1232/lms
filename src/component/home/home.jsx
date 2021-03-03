@@ -1,7 +1,7 @@
 import React, { Component,createRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Overlay from "react-bootstrap/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
 import './home.scss'
@@ -21,6 +21,10 @@ export default class home extends Component {
 
     }
     target = createRef(null)
+
+    getDashDetails=()=>{
+
+    }
     render() {
         if (this.state.loggedIn === false) {
             return <Redirect to='/login' />
@@ -31,7 +35,7 @@ export default class home extends Component {
                     <div className='t1'>DASHBOARD DETAILS</div>
                     <Card className='card'>
                         <Card.Body>
-                            <div className='card-head'>Java Full Stack with Angular6 <img className='dot' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /></div><br /><br />
+                            <div className='card-head'>Java Full Stack with Angular6 <img className='dot' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /></div><br /><br />
 
                             <div className='contain'> <div className='a1'>25 <br /><span className='b1'>Students</span> </div><div className='line'></div><div className='a2'>3<br /><span className='b2'>Mentors</span></div></div>
 
@@ -40,7 +44,7 @@ export default class home extends Component {
                     </Card>
                     <Card className='card'>
                         <Card.Body>
-                            <div className='card-head'>Java Full Stack with Angular6 <img className='dot' /></div><br /><br />
+                            <div className='card-head'>Java Full Stack with Angular6 <img className='dot' alt='' /></div><br /><br />
 
                             <div className='contain'> <div className='a1'>25 <br /><span className='b1'>Students</span> </div><div className='line'></div><div className='a2'>3<br /><span className='b2'>Mentors</span></div></div>
 
