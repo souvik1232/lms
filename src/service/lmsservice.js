@@ -1,9 +1,11 @@
 import axios from "axios";
 import Axios from "./axiosservice";
+import {connect} from 'react-redux'
+
 
 const axiosService = new Axios()
 
-export default class LmsService {
+class LmsService {
     
     loginlms = (data) =>{
         return axiosService.Post('login/',data)
@@ -11,7 +13,16 @@ export default class LmsService {
     getdashboard = ()=>{
         return axiosService.Get()
     }
-    getmentordetails=()=>{
-        return axios.Get()
+    getmentordetails=(token)=>{
+        return axiosService.Get('mentor-details/',token)
+    }
+    getcoursedetails = (token)=>{
+        return axiosService.Get('courses/',token)
     }
 }
+const mapStateToProps = (state) => {
+    return {
+      token: state.state,
+    };
+  };
+  export default LmsService

@@ -18,6 +18,7 @@
     border-radius: 11px;
     color: #40494D;
     font-size: 16px;
+    font-weight: 700;
 }
 .in-div{
     display: flex;
@@ -33,4 +34,28 @@
 #outlined-basic4{
     width: 300px;
     height: 70px;
+}
+.crs-id{
+    background: #40494D 0% 0% no-repeat padding-box;
+border-radius: 2px;
+opacity: 1;
+color: white;
+font-size: 10px;
+font-weight: 100;
+}
+.txt-crs{
+    text-align: left;
+    letter-spacing: 0px;
+    color: #37465A;
+    opacity: 1;
+    font-size: 12px;
+    width: 233px;
+    
+}
+.price{
+    text-align: left;
+font-size: 25px;
+letter-spacing: 0px;
+color: #40494D;
+opacity: 1;
 }

@@ -13,10 +13,11 @@
     left: 1000px;
     width: 105px;
     height: 35px;
+    cursor: pointer;
 }
 .dot1{
     content: url('../assets/ic_more_vert_24px.svg');
-    position: relative;
+    // position: relative;
     left:139px;
     width: 3px;
     padding-left: 6.5px;
@@ -65,7 +66,7 @@
     opacity: 1;
     width: 122px;
     height: 40px;
-    color: #658292;
+    color: #648190;
     font-size: 18px;
     font-weight: 100;
 }
@@ -88,4 +89,20 @@
     padding:20px;
     display: flex;
     
+}
+.card-head{
+    font-size: 17px;
+}
+.mid{
+    // background: #40494D 0% 0% no-repeat padding-box;
+border-radius: 2px;
+opacity: 1;
+color:#648190;
+font-size: 13px;
+font-weight: 100;
+}
+.line1{
+    border:1px solid#DEE5EE;
+    width: 230px;
+    margin-left: 9px;
 }

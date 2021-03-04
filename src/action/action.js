@@ -1,6 +1,7 @@
- export  const logged = (token)=>{
+export const LOGIN = 'LOGIN'
+export  const logged = (token)=>{
     return{
-        type:'LOGIN',
+        type:LOGIN,
         payload:token
     }
 }

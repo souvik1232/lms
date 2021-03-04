@@ -1,16 +1,17 @@
 import React, { Component, createRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import {Link } from "react-router-dom";
+import {connect} from 'react-redux'
 // import Card from "react-bootstrap/Card";
 // import Button from "react-bootstrap/Button";
 // import Overlay from "react-bootstrap/Overlay";
 // import Tooltip from "react-bootstrap/Tooltip";
 import './dashboard.scss'
 
-export default class dashboard extends Component {
+class dashboard extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
+        const token = this.props.token
         let loggedIn = true
         if (token == null) {
             loggedIn = false
@@ -21,6 +22,7 @@ export default class dashboard extends Component {
         }
 
     }
+    
     target = createRef(null)
     render() {
         if (this.state.loggedIn === false) {
@@ -42,3 +44,9 @@ export default class dashboard extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+      token: state.state,
+    };
+  };
+export default connect(mapStateToProps,undefined) (dashboard);
