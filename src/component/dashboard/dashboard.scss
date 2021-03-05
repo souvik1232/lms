@@ -6,12 +6,14 @@
     border: 1px solid #DEE5EE;
     // border: 1px solid #000000;
     display: flex;
-    align-items:flex-start;
+    // align-items:flex-start;
     position: relative;
 
 }
 .details{
-    position: absolute;
+    position: fixed;
+    // width: 1300px;
+    margin-right: 45px;
     top: 15%;
     left: 19%;
     // border: 1px solid #000000;

@@ -7,6 +7,14 @@ export default class Axios{
         // console.log(token);
         return axios.post(baseurl+url,data)
     }
+    POST(url,data,token){
+        return axios.post(baseurl1+url,data,{
+            headers: {
+                'Authorization': token,
+                
+            }
+        })
+    }
     Get(url,token){
         console.log(token);
         return axios.get(baseurl1+url,{

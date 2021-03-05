@@ -12,8 +12,8 @@ import Button from "react-bootstrap/Button";
 import Overlay from "react-bootstrap/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
 import Dialog from '@material-ui/core/Dialog';
-import getCourse from '../../service/lmsservice';
-const getcourse = new getCourse();
+import LMS from '../../service/lmsservice';
+const lms = new LMS();
 
 class course extends Component {
     constructor(props) {
@@ -24,6 +24,11 @@ class course extends Component {
             loggedIn = false
         }
         this.state = {
+            courseid:'',
+            coursename:'',
+            duration:'',
+            description:'',
+            courseprice:'',
             show: false,
             open: false,
             coursearray: [],
@@ -57,10 +62,26 @@ class course extends Component {
     };
 
     handleCourse = () => {
-        getcourse.getcoursedetails(this.props.token).then((data) => {
+        lms.getcoursedetails(this.props.token).then((data) => {
             console.log(data.data.response);
             this.setState({ coursearray: data.data.response })
         }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+
+    addCourse = ()=>{
+        let data = {
+            course_name:this.state.coursename,
+            duration_weeks:this.state.duration,
+            description:this.state.description,
+            course_price:this.state.courseprice
+        }
+        lms.addcourse(this.props.token,data).then((res)=>{
+            console.log(res);
+            this.handleCourse()
+        }).catch((err)=>{
             console.log(err);
         })
     }
@@ -79,7 +100,7 @@ class course extends Component {
                         <Card.Body>
                             <div className='card-head1'>{data.course_name}<img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /> <br/> <span className='crs-id'>{data.cid}</span> </div>
                             <div className='price'>RS {data.course_price}</div>
-                            <div className='txt-crs'><span >Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumyundefined</span></div>
+                            <div className='txt-crs'><span >{data.description}</span></div>
                         </Card.Body>
 
                     </Card>
@@ -103,15 +124,15 @@ class course extends Component {
                     <div className='dig-container'>
                         <div className='tip'>Add Mentor</div>
                         <div><ThemeProvider theme={this.theme}>
-                            <TextField id="outlined-basic2" size='small' label="Course ID" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Course Name" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                            <TextField id="outlined-basic2" size='small' label="Course ID" variant="outlined" onChange={(e) => { this.setState({ courseid: e.target.value }) }} /><br /><br />
+                            <TextField id="outlined-basic2" size='small' label="Course Name" variant="outlined" onChange={(e) => { this.setState({ coursename: e.target.value }) }} /><br /><br />
                             <div className='in-div'>
-                                <TextField id="outlined-basic3" size='small' label="Price" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                                <TextField id="outlined-basic3" size='small' label="Duration" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                                <TextField id="outlined-basic3" size='small' label="Price" variant="outlined" onChange={(e) => { this.setState({ courseprice: e.target.value }) }} /><br /><br />
+                                <TextField id="outlined-basic3" size='small' label="Duration" variant="outlined" onChange={(e) => { this.setState({ duration: e.target.value }) }} /><br /><br />
                             </div><br />
-                            <TextField type='text' size='small' id="outlined-basic4" label="Description" variant="outlined" onChange={(e) => { this.setState({ password: e.target.value }) }} /><br />
+                            <TextField type='text' size='small' id="outlined-basic4" label="Description" variant="outlined" onChange={(e) => { this.setState({ description: e.target.value }) }} /><br />
                         </ThemeProvider></div><br /><br />
-                        <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2'>Add</button></div>
+                        <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2' onClick={this.addCourse}>Add</button></div>
                     </div>
                 </Dialog>
             </div>

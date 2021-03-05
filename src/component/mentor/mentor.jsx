@@ -15,8 +15,8 @@ import Dialog from '@material-ui/core/Dialog';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
-import getMentor from '../../service/lmsservice'
-const getmentor = new getMentor();
+import LMS from '../../service/lmsservice'
+const lms = new LMS();
 
 
 
@@ -29,6 +29,11 @@ class mentor extends Component {
             loggedIn = false
         }
         this.state = {
+            mentorid:'',
+            name:'',
+            email:'',
+            mobile:'',
+            mentor:'',
             show: false,
             mentorarray: [],
             open: false,
@@ -60,9 +65,10 @@ class mentor extends Component {
 
     handleChange = (event) => {
         this.setState({
-            course: event.target.value
+            mentor: event.target.value
         })
     }
+
 
     handleClose = () => {
         this.setState({ open: false })
@@ -70,13 +76,27 @@ class mentor extends Component {
 
     handleMentor = () => {
         console.log();
-        getmentor.getmentordetails(this.props.token).then((data) => {
+        lms.getmentordetails(this.props.token).then((data) => {
             console.log(data.data.response);
             this.setState({ mentorarray: data.data.response })
         }).catch((err) => {
             console.log(err);
         })
 
+    }
+    addmentor = () =>{
+        let data = {
+            name:this.state.name,
+            email:this.state.email,
+            mobile:this.state.mobile,
+            mentor:this.state.mentor
+        }
+        lms.addmentor(this.props.token ,data).then(res=>{
+            console.log(res);
+            this.handleMentor()
+        }).catch(err=>{
+            console.log(err);
+        })
     }
     target = createRef(null)
     render() {
@@ -116,17 +136,17 @@ class mentor extends Component {
                     <div className='dig-container'>
                         <div className='tip'>Add Mentor</div>
                         <div><ThemeProvider theme={this.theme}>
-                            <TextField id="outlined-basic2" size='small' label="Mentor ID" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Name" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Email Id" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Mobile Number" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                            <TextField id="outlined-basic2" size='small' label="Mentor ID" variant="outlined" onChange={(e) => { this.setState({ mentorid: e.target.value }) }} /><br /><br />
+                            <TextField id="outlined-basic2" size='small' label="Name" variant="outlined" onChange={(e) => { this.setState({ name: e.target.value }) }} /><br /><br />
+                            <TextField id="outlined-basic2" size='small' label="Email Id" variant="outlined" onChange={(e) => { this.setState({ email: e.target.value }) }} /><br /><br />
+                            <TextField id="outlined-basic2" size='small' label="Mobile Number" variant="outlined" onChange={(e) => { this.setState({ mobile: e.target.value }) }} /><br /><br />
                             {/* <TextField onClick={this.handleClick} type='text' size='small' id="outlined-basic2" label="Course" variant="outlined" onChange={(e) => { this.setState({ password: e.target.value }) }} /><br /> */}
                             <FormControl variant="outlined"  >
                                 <InputLabel htmlFor="outlined-age-native-simple">Course</InputLabel>
                                 <Select
                                     id="outlined-basic-drop"
                                     native
-                                    value={this.state.course}
+                                    value={this.state.mentor}
                                     onChange={this.handleChange}
                                     label="Course"
                                 >
@@ -137,7 +157,7 @@ class mentor extends Component {
                                 </Select>
                             </FormControl>
                         </ThemeProvider></div><br /><br />
-                        <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2'>Add</button></div>
+                        <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2' onClick={this.addmentor}>Add</button></div>
                     </div>
                 </Dialog>
             </div >
@@ -149,4 +169,5 @@ const mapStateToProps = (state) => {
       token: state.state,
     };
   };
+
   export default connect(mapStateToProps,undefined) (mentor);
