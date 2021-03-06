@@ -5,6 +5,7 @@ import {
     ThemeProvider,
     createMuiTheme,
 } from '@material-ui/core/styles';
+import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -17,22 +18,31 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import './student.scss'
+import LMS from '../../service/lmsservice'
+const lms = new LMS()
 
 
-export default class student extends Component {
+class student extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
+        const token = this.props.token
         let loggedIn = true
         if (token == null) {
             loggedIn = false
         }
         this.state = {
+            name:'',
+            email:'',
+            mobile:'',
+            studentarr: [],
             show: false,
             open: false,
             loggedIn
         }
 
+    }
+    componentDidMount() {
+        this.getstudent()
     }
 
     theme = createMuiTheme({
@@ -55,6 +65,18 @@ export default class student extends Component {
     handleClose = () => {
         this.setState({ open: false })
     };
+
+    getstudent = () => {
+        lms.getstudentdetails(this.props.token).then((res) => {
+            console.log(res.data.response);
+            this.setState({ studentarr: res.data.response })
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+    addstudent = ()=>{
+
+    }
     target = createRef(null)
     render() {
         if (this.state.loggedIn === false) {
@@ -66,34 +88,33 @@ export default class student extends Component {
                     <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Student</Button>
                     <div className='t1'>STUDENT DETAILS</div>
 
-                    <TableContainer >
-                        <Table className aria-label="customized table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell align="right">Student ID</TableCell>
-                                    <TableCell align="right">Student ID</TableCell>
-                                    <TableCell align="right">Name</TableCell>
-                                    <TableCell align="right">Email ID</TableCell>
-                                    <TableCell align="right">Mobile No.</TableCell>
-                                    <TableCell align="right">Course</TableCell>
-                                    <TableCell align="right">Mentor</TableCell>
-                                    <TableCell align="right">Score</TableCell>
-                                    <TableCell align="right">Week</TableCell>
+                    <TableContainer className='tcont'>
+                        <Table className='main-table' aria-label="customized table">
+                            <TableHead className='t-head'>
+                                <TableRow>                                   
+                                    <TableCell id='th' align="center">Student ID</TableCell>
+                                    <TableCell id='th' align="center">Name</TableCell>
+                                    <TableCell id='th' align="center">Email ID</TableCell>
+                                    <TableCell id='th' align="center">Mobile No.</TableCell>
+                                    <TableCell id='th' align="center">Course</TableCell>
+                                    <TableCell id='th' align="center">Mentor</TableCell>
+                                    <TableCell id='th' align="center">Score</TableCell>
+                                    <TableCell id='th' align="center">Week</TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody>
-                                
-                                {/* {rows.map((row) => (
-                                    <StyledTableRow key={row.name}>
-                                        <StyledTableCell component="th" scope="row">
-                                            {row.name}
-                                        </StyledTableCell>
-                                        <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                                        <StyledTableCell align="right">{row.protein}</StyledTableCell>
-                                    </StyledTableRow>
-                                ))} */}
+                            <TableBody className='t-body'>
+                                {this.state.studentarr.map((data) => (
+                                    <TableRow key={data.id}>
+                                        <TableCell id='tb' align='center' >{data.sid}</TableCell>
+                                        <TableCell id='tb' align="center">{data.student}</TableCell>
+                                        <TableCell id='tb' align="center">{data.email}</TableCell>
+                                        <TableCell id='tb' align="center">{data.mobile}</TableCell>
+                                        <TableCell id='tb' align="center">{data.course}</TableCell>
+                                        <TableCell id='tb' align="center">{data.mentor}</TableCell>
+                                        <TableCell id='tb' align="center">{data.score}</TableCell>
+                                        <TableCell id='tb' align="center">{data.week}</TableCell>
+                                    </TableRow>
+                                ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -102,9 +123,9 @@ export default class student extends Component {
                             <div className='tip'>Add Mentor</div>
                             <div><ThemeProvider theme={this.theme}>
                                 <TextField id="outlined-basic2" size='small' label="Student ID" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                                <TextField id="outlined-basic2" size='small' label="Name" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                                <TextField id="outlined-basic2" size='small' label="Email Id" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
-                                <TextField id="outlined-basic2" size='small' label="Mobile Number" variant="outlined" onChange={(e) => { this.setState({ username: e.target.value }) }} /><br /><br />
+                                <TextField id="outlined-basic2" size='small' label="Name" variant="outlined" onChange={(e) => { this.setState({ name: e.target.value }) }} /><br /><br />
+                                <TextField id="outlined-basic2" size='small' label="Email Id" variant="outlined" onChange={(e) => { this.setState({ email: e.target.value }) }} /><br /><br />
+                                <TextField id="outlined-basic2" size='small' label="Mobile Number" variant="outlined" onChange={(e) => { this.setState({ mobile: e.target.value }) }} /><br /><br />
                                 {/* <TextField type='text' size='small' id="outlined-basic2" label="Course" variant="outlined" onChange={(e) => { this.setState({ password: e.target.value }) }} /><br /><br/> */}
                                 {/* <TextField type='text' size='small' id="outlined-basic2" label="Mentor" variant="outlined" onChange={(e) => { this.setState({ password: e.target.value }) }} /><br /> */}
                                 <FormControl variant="outlined"  >
@@ -142,7 +163,13 @@ export default class student extends Component {
                         </div>
                     </Dialog>
                 </div>
-            </div>
+            </div >
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        token: state.state,
+    };
+};
+export default connect(mapStateToProps, undefined)(student)

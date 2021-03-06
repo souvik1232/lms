@@ -19,11 +19,17 @@ class LmsService {
     getcoursedetails = (token) => {
         return axiosService.Get('courses/', token)
     }
+    getstudentdetails = (token) => {
+        return axiosService.Get('students/', token)
+    }
     addcourse = (token, data) => {
         return axiosService.POST('course/', data, token)
     }
     addmentor = (token, data) => {
         return axiosService.POST('mentor/', data, token)
+    }
+    addstudent = (token, data) => {
+        return axiosService.POST('students/', data, token)
     }
 }
 export default LmsService

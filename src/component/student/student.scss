@@ -1,15 +1,26 @@
-Table{
+.main-table{
     padding: 15px;
-    width: 1400px;
+    width: 1200px;
     position: relative;
-    right: 120px;
-    // border: 1px solid black;
+    // right: 120px;
+    border: 1px solid #DEDEDE;
+    
     border-top-left-radius: 22px;
     border-top-right-radius: 22px ;
-    background-color: blanchedalmond;
+    background-color: #FFFFFF;
 }
-thead{
+.t-head{
     background-color: #12324B;
     color: white;
     text-align: center;
+}
+.t-body{
+    text-align: center;
+}
+#th{
+    color: white;
+    opacity: 40%;
+}
+#tb{
+    color: #575757;
 }

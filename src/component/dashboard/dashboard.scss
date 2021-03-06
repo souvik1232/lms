@@ -78,6 +78,9 @@
     border-left: 0px;
     width: 1972px;
     height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .card{
     width: 275px;
@@ -178,6 +181,18 @@
     font-weight: bold;
     font-size: 14px;
     color: #40494D;
+}
+.profile{
+    content: url('../assets/user.svg');
+    
+    width: 19px;
+    position: relative;
+    right: 150px;
+    background-color: #DEE5EE;
+    border: #DEE5EE;
+    border-radius: 22px;
+    padding: 12px 12px 12px 12px;
+    
 }
 @media (max-width:1200px){
     .sidebar{

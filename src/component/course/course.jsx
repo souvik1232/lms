@@ -18,7 +18,7 @@ const lms = new LMS();
 class course extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
+        const token = this.props.token
         let loggedIn = true
         if (token == null) {
             loggedIn = false
@@ -99,7 +99,7 @@ class course extends Component {
                     {this.state.coursearray.map((data) => (<Card className='card-course'>
                         <Card.Body>
                             <div className='card-head1'>{data.course_name}<img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /> <br/> <span className='crs-id'>{data.cid}</span> </div>
-                            <div className='price'>RS {data.course_price}</div>
+                            <div className='price'>₹ {data.course_price} / {data.duration_weeks} <span className='mnth'> months</span> </div>
                             <div className='txt-crs'><span >{data.description}</span></div>
                         </Card.Body>
 

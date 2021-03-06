@@ -38,7 +38,7 @@ class dashboard extends Component {
                         <div className='tabs'><Link className='a'  to={`${this.props.match.path}/student`}>Student</Link> </div>
                         <div className='tabs'><Link className='a'  to={`${this.props.match.path}/course`}>Course</Link> </div>
                     </div>
-                    <div className='navbar'></div>
+                    <div className='navbar'> <div className='profile'> <img alt=""/> </div> </div>
                 </div>
             </div> 
         )

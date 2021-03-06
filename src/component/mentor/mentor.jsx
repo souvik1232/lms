@@ -33,7 +33,7 @@ class mentor extends Component {
             name:'',
             email:'',
             mobile:'',
-            mentor:'',
+            mentor:[],
             show: false,
             mentorarray: [],
             open: false,
@@ -89,8 +89,9 @@ class mentor extends Component {
             name:this.state.name,
             email:this.state.email,
             mobile:this.state.mobile,
-            mentor:this.state.mentor
+            mentor:{course:[this.state.mentor]}
         }
+        console.log(data);
         lms.addmentor(this.props.token ,data).then(res=>{
             console.log(res);
             this.handleMentor()
@@ -151,9 +152,12 @@ class mentor extends Component {
                                     label="Course"
                                 >
                                     <option aria-label="None" value="" />
-                                    <option value={10}>Java FullStack</option>
-                                    <option value={20}>dasdad</option>
-                                    <option value={30}>Thsaddadsirty</option>
+                                    <option value={1}>Python</option>
+                                    <option value={2}>Django</option>
+                                    <option value={3}>Java</option>
+                                    <option value={4}>React</option>
+                                    <option value={5}>Angular</option>
+                                    <option value={6}>JavaScript</option>
                                 </Select>
                             </FormControl>
                         </ThemeProvider></div><br /><br />
