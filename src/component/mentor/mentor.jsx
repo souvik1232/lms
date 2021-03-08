@@ -23,7 +23,7 @@ const lms = new LMS();
 class mentor extends Component {
     constructor(props) {
         super(props)
-    const token = this.props.token;
+    const token = localStorage.getItem('token')
         let loggedIn = true
         if (token == null) {
             loggedIn = false
@@ -76,7 +76,7 @@ class mentor extends Component {
 
     handleMentor = () => {
         console.log();
-        lms.getmentordetails(this.props.token).then((data) => {
+        lms.getmentordetails(localStorage.getItem('token')).then((data) => {
             console.log(data.data.response);
             this.setState({ mentorarray: data.data.response })
         }).catch((err) => {
@@ -111,10 +111,18 @@ class mentor extends Component {
                     <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     <div className='t1'>MENTOR DETAILS</div>
                     {this.state.mentorarray.map((data) => (<Card className='card-mentor'>
-                        <Card.Body>
-                            <div className='card-head'>{data.image}{data.mentor} <img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /><br/>
-                            <span className='mid'>{data.mid} <br/> Poonam@bridgelabz.com </span></div><br />
-                            <div className= 'line1'></div>
+                        
+                        <Card.Body className=''>
+                        <Card.Title><div className='card-head'> <img className='mentor-img' alt="img"/> <div>{data.mentor} <br/> <span className='mid'>{data.mid} <br/> Poonam@bridgelabz.com </span></div>  <img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /><br/>
+                            </div></Card.Title>
+                            <Card.Text className='text'>
+                            <div className= 'line1'></div><br/>
+                            <div className='mid'>Course Name <span className='astudent'>No.of students</span></div>
+                            <div className='card-object'>
+                            {data.course.map((dta)=>(<div className='courselist'>{dta.course_name}<span className='scount'>{dta.student_count}</span>  </div>))}
+                            asbdka <br/>dbajdba <br/>jhadbhjabhdj <br/>nwbjebjf <br/>bejbwew <br/>jhwevhjdv <br/>
+                            </div></Card.Text>
+                            
 
                         </Card.Body>
                         

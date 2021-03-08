@@ -12,16 +12,18 @@
 }
 .details{
     position: fixed;
-    // width: 1300px;
+    width: 1300px;
     margin-right: 45px;
-    top: 15%;
+    // bottom: 800px;
     left: 19%;
+    top: 15%;
     // border: 1px solid #000000;
     // border: 1px solid #DEE5EE;
     padding: 25px;
     text-align: left;
     display: flex;
     flex-wrap: wrap;
+    overflow: visible;
     // width: 100px;
 
 }
@@ -106,7 +108,7 @@
 .dot{
     content: url('../assets/ic_more_vert_24px.svg');
     position: relative;
-    left:49px;
+    left:35px;
     // border: 1px solid black;
     width: 3px;
     padding-left: 6.5px;

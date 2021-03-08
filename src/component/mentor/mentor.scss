@@ -1,30 +1,54 @@
+.text{
+    // overflow: hidden;
+    // border: 1px solid black;
+}
 .card-mentor{
     border-radius: 4px;
     position: relative;
     right: 110px;
     width: 255px;
     height: 253px;
+    
 }
+.card-head{
+    // border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+}
+
 .buto1{
     position: relative;
     font-size: 12px;
     font-weight: lighter;
     top: -60px;
-    left: 1000px;
+    left: 1270px;
     width: 105px;
     height: 35px;
     cursor: pointer;
+}
+.astudent{
+    position: relative;
+    font-size: 12px;
+    left: 100px;
+}
+.mentor-img{
+    content: url('../assets/employee\ \(5\).png');
+    border-radius: 60px;
+    // border: 1px solid black;
+    background-color: blanchedalmond;
+    width: 60px;
 }
 .dot1{
     content: url('../assets/ic_more_vert_24px.svg');
     // position: relative;
     left:139px;
+    height: 23px;
     width: 3px;
-    padding-left: 6.5px;
-    padding-right: 6.5px;
-    padding-top: 1px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-top: px;
     padding-bottom: 1px;
-    border-radius: 9px;
+    border-radius: 22px;
     background-color: #F5F5F5;
 }
 .tip{
@@ -92,6 +116,7 @@
 }
 .card-head{
     font-size: 17px;
+    
 }
 .mid{
     // background: #40494D 0% 0% no-repeat padding-box;
@@ -103,6 +128,54 @@ font-weight: 100;
 }
 .line1{
     border:1px solid#DEE5EE;
-    width: 230px;
-    margin-left: 9px;
+    width: 250px;
+    margin-left: 1px;
 }
+.card-object{
+    padding-left: 5px;
+    padding-right: 5px;
+    position: relative;
+    right: 9px;
+    top: 10px;
+    padding-bottom:6px ;
+    width: 264px;
+    overflow: auto;
+    height: 126px;
+    box-shadow:0 -7px 9px -7px rgba(0,0,0,0.4) inset;
+    
+    // border: 1px solid black;
+}
+::-webkit-scrollbar{
+    width: 3px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px white; 
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #989FA3; 
+    border-radius: 10px;
+  }
+  
+.courselist{
+    border: 1px solid #DEE5EE;
+    height: 27px;
+    width: 95%;
+    border-radius: 3px;
+    position: relative;
+    // top: -14px;
+    background-color: #80808053;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+.scount{
+    // border: 1px solid black;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 22px;
+    background-color: #008CFF;
+    color: white;
+    position: relative;
+    left: 140px;
+}
+

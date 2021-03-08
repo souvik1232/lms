@@ -11,7 +11,7 @@ import './dashboard.scss'
 class dashboard extends Component {
     constructor(props) {
         super(props)
-        const token = this.props.token
+        const token = localStorage.getItem('token')
         let loggedIn = true
         if (token == null) {
             loggedIn = false

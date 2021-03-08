@@ -45,7 +45,7 @@ class login extends Component {
             // console.log(data.headers.get('authorization'));
             console.log(data);
             this.props.logged(data.headers.authorization)
-            // localStorage.setItem("token",data.headers.authorization)
+            localStorage.setItem("token",data.headers.authorization)
             this.setState({ snackbaropen: true, snackbarmsg: 'Logged In' })
             this.setState({
                 loggedIn:true
