@@ -38,6 +38,16 @@
     background-color: blanchedalmond;
     width: 60px;
 }
+.li{
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: relative;
+    height: 740px;
+    justify-content: flex-end;
+}
 .dot1{
     content: url('../assets/ic_more_vert_24px.svg');
     // position: relative;

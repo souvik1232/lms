@@ -73,7 +73,7 @@ class login extends Component {
     
     render() {
         if(this.state.loggedIn){
-            return <Redirect to='/dashboard'/>
+            return <Redirect to='/dashboard/home'/>
         }
         return (
             <div className='login'>

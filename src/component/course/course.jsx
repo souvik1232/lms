@@ -96,7 +96,7 @@ class course extends Component {
                 <div className='details'>
                     <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Course</Button>
                     <div className='t1'>COURSE DETAILS</div>
-                    {this.state.coursearray.map((data) => (<Card className='card-course'>
+                    <div className='li1'>{this.state.coursearray.map((data) => (<Card className='card-course'>
                         <Card.Body>
                             <div className='card-head1'>{data.course_name}<img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /> <br/> <span className='crs-id'>{data.cid}</span> </div>
                             <div className='price'>₹ {data.course_price} / {data.duration_weeks} <span className='mnth'> months</span> </div>
@@ -104,7 +104,8 @@ class course extends Component {
                         </Card.Body>
 
                     </Card>
-                    ))}
+                    ))}</div>
+                    
                     <Overlay target={this.target.current} show={this.state.show} placement="bottom">
                         {(props) => (
                             <Tooltip id="overlay-example" {...props}>

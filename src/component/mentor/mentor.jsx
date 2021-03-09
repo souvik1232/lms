@@ -110,7 +110,7 @@ class mentor extends Component {
                 <div className='details'>
                     <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     <div className='t1'>MENTOR DETAILS</div>
-                    {this.state.mentorarray.map((data) => (<Card className='card-mentor'>
+                    <div className='li'>{this.state.mentorarray.map((data) => (<Card className='card-mentor'>
                         
                         <Card.Body className=''>
                         <Card.Title><div className='card-head'> <img className='mentor-img' alt="img"/> <div>{data.mentor} <br/> <span className='mid'>{data.mid} <br/> Poonam@bridgelabz.com </span></div>  <img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /><br/>
@@ -126,7 +126,8 @@ class mentor extends Component {
 
                         </Card.Body>
                         
-                    </Card>))}
+                    </Card>))}</div>
+                    
                     <Overlay target={this.target.current} show={this.state.show} placement="bottom">
                             {(props) => (
                                 <Tooltip id="overlay-example" {...props}>
