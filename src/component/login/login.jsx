@@ -35,7 +35,6 @@ class login extends Component {
         }
     }
     handlelogin = () => {
-        const {dispatch} = this.props;
         
         let req = {
             username: this.state.username,
@@ -103,4 +102,5 @@ class login extends Component {
         )
     }
 }
+
 export default connect(null,{logged:logged})( login)

@@ -105,8 +105,8 @@ class mentor extends Component {
             return <Redirect to='/login' />
         }
         return (
-            <div>
-
+            // <di<.v>
+<>
                 <div className='details'>
                     <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     <div className='t1'>MENTOR DETAILS</div>
@@ -173,7 +173,7 @@ class mentor extends Component {
                         <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2' onClick={this.addmentor}>Add</button></div>
                     </div>
                 </Dialog>
-            </div >
+            </>
         )
     }
 }

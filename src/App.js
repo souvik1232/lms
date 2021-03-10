@@ -9,6 +9,7 @@ import home from './component/home/home';
 import student from './component/student/student';
 import course from './component/course/course';
 import mentordetails from './component/mentordetails/mentordetails'
+import dashboard1 from './component/dashboard-unique/dashboardunique'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard/student" component={student} />
           <Route path="/dashboard/course" component={course} />
           <Route path="/dashboard/details" component={mentordetails} />
+          <Route path="/dashboard/mentorcoursedetails" component={dashboard1} />
 
 
           {/* </Switch> */}
