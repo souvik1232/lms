@@ -74,7 +74,7 @@ class mentor extends Component {
         this.setState({ open: false })
     };
 
-    handleMentor = () => {
+    handleMentor = () => { 
         console.log();
         lms.getmentordetails(localStorage.getItem('token')).then((data) => {
             console.log(data.data.response);
