@@ -29,7 +29,7 @@ class dashboard extends Component {
             return <Redirect to='/login' />
         }
         return (
-            <div className='contain-container'>
+            <>
                 <div className='container'>
                     <div className='sidebar'>
                         <img className='i1' alt='' /><br />
@@ -40,7 +40,7 @@ class dashboard extends Component {
                     </div>
                     <div className='navbar'> <div className='profile'> <img alt=""/> </div> </div>
                 </div>
-            </div> 
+            </> 
         )
     }
 }

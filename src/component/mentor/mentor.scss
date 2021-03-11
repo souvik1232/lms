@@ -20,8 +20,8 @@
     position: relative;
     font-size: 12px;
     font-weight: lighter;
-    top: -60px;
-    left: 1270px;
+    // top: -60px;
+    // left: 1270px;
     width: 105px;
     height: 35px;
     cursor: pointer;
@@ -39,14 +39,14 @@
     width: 60px;
 }
 .li{
-    // border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: auto;
-    position: relative;
-    height: 740px;
-    justify-content: flex-end;
+    border: 1px solid black;
+    // display: flex;
+    // flex-direction: row;
+    // flex-wrap: wrap;
+    // overflow: auto;
+    // position: relative;
+    // height: 740px;
+    // justify-content: flex-end;
 }
 .dot1{
     content: url('../assets/ic_more_vert_24px.svg');
@@ -74,7 +74,6 @@
     position: relative;
     top: -15px;
     z-index: 1;
-    position: relative;
     left: 41px;
 }
 .dig-container{

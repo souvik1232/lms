@@ -108,7 +108,7 @@ class mentor extends Component {
             // <di<.v>
 <>
                 <div className='details'>
-                    <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
+                    
                     <div className='t1'>MENTOR DETAILS</div>
                     <div className='li'>{this.state.mentorarray.map((data) => (<Card className='card-mentor'>
                         
@@ -127,6 +127,7 @@ class mentor extends Component {
                         </Card.Body>
                         
                     </Card>))}</div>
+                    <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     
                     <Overlay target={this.target.current} show={this.state.show} placement="bottom">
                             {(props) => (
