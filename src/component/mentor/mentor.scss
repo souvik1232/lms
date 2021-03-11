@@ -5,7 +5,7 @@
 .card-mentor{
     border-radius: 4px;
     position: relative;
-    right: 110px;
+    // right: 110px;
     width: 255px;
     height: 253px;
     
@@ -39,14 +39,20 @@
     width: 60px;
 }
 .li{
-    border: 1px solid black;
-    // display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    // overflow: auto;
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding: 20px;
+    justify-content: space-between;
     // position: relative;
-    // height: 740px;
+    height: 740px;
     // justify-content: flex-end;
+}
+.lac{
+    display: flex;
+    justify-content: space-between;
 }
 .dot1{
     content: url('../assets/ic_more_vert_24px.svg');

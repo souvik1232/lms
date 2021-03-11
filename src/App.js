@@ -10,6 +10,8 @@ import student from './component/student/student';
 import course from './component/course/course';
 import mentordetails from './component/mentordetails/mentordetails'
 import dashboard1 from './component/dashboard-unique/dashboardunique'
+import PrivateRoute from './component/privateroute/privateroute';
+import AuthRoute from './component/authroute/authroute';
 
 function App() {
   return (
@@ -17,14 +19,14 @@ function App() {
       <Router>
         <div>
           {/* <Switch> */}
-          <Route path="/login" component={Login} />
+          <AuthRoute path="/login" exact component={Login} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/dashboard/home" component={home} />
-          <Route path="/dashboard/mentor" component={mentor} />
-          <Route path="/dashboard/student" component={student} />
-          <Route path="/dashboard/course" component={course} />
-          <Route path="/dashboard/details" component={mentordetails} />
-          <Route path="/dashboard/mentorcoursedetails" component={dashboard1} />
+          <PrivateRoute path="/dashboard/home" component={home} />
+          <PrivateRoute path="/dashboard/mentor" component={mentor} />
+          <PrivateRoute path="/dashboard/student" component={student} />
+          <PrivateRoute path="/dashboard/course" component={course} />
+          <PrivateRoute path="/dashboard/details" component={mentordetails} />
+          <PrivateRoute path="/dashboard/mentorcoursedetails" component={dashboard1} />
 
 
           {/* </Switch> */}

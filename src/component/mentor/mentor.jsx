@@ -24,10 +24,7 @@ class mentor extends Component {
     constructor(props) {
         super(props)
     const token = localStorage.getItem('token')
-        let loggedIn = true
-        if (token == null) {
-            loggedIn = false
-        }
+        
         this.state = {
             mentorid:'',
             name:'',
@@ -38,7 +35,6 @@ class mentor extends Component {
             mentorarray: [],
             open: false,
             course: '',
-            loggedIn
         }
 
     }
@@ -101,18 +97,21 @@ class mentor extends Component {
     }
     target = createRef(null)
     render() {
-        if (this.state.loggedIn === false) {
-            return <Redirect to='/login' />
-        }
+        // if (this.state.loggedIn === false) {
+        //     return <Redirect to='/login' />
+        // }
         return (
             // <di<.v>
 <>
                 <div className='details'>
+                    <div className='lac'>
+                        <div className='t1'>MENTOR DETAILS</div>
+                        <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
+                    </div>
                     
-                    <div className='t1'>MENTOR DETAILS</div>
                     <div className='li'>{this.state.mentorarray.map((data) => (<Card className='card-mentor'>
                         
-                        <Card.Body className=''>
+                        <Card.Body >
                         <Card.Title><div className='card-head'> <img className='mentor-img' alt="img"/> <div>{data.mentor} <br/> <span className='mid'>{data.mid} <br/> Poonam@bridgelabz.com </span></div>  <img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /><br/>
                             </div></Card.Title>
                             <Card.Text className='text'>
@@ -127,7 +126,7 @@ class mentor extends Component {
                         </Card.Body>
                         
                     </Card>))}</div>
-                    <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
+                    
                     
                     <Overlay target={this.target.current} show={this.state.show} placement="bottom">
                             {(props) => (

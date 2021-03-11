@@ -18,11 +18,6 @@ const lms = new LMS();
 class course extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
-        let loggedIn = true
-        if (token == null) {
-            loggedIn = false
-        }
         this.state = {
             courseid:'',
             coursename:'',
@@ -32,7 +27,6 @@ class course extends Component {
             show: false,
             open: false,
             coursearray: [],
-            loggedIn
         }
 
     }
@@ -87,15 +81,19 @@ class course extends Component {
     }
     target = createRef(null)
     render() {
-        if (this.state.loggedIn === false) {
-            return <Redirect to='/login' />
-        }
+        // if (this.state.loggedIn === false) {
+        //     return <Redirect to='/login' />
+        // }
         return (
             <div>
 
                 <div className='details'>
-                    <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Course</Button>
-                    <div className='t1'>COURSE DETAILS</div>
+                <div className='lac'>
+                <div className='t1'>COURSE DETAILS</div>
+                <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Course</Button>
+                    </div>
+                    
+                    
                     <div className='li1'>{this.state.coursearray.map((data) => (<Card className='card-course'>
                         <Card.Body>
                             <div className='card-head1'>{data.course_name}<img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /> <br/> <span className='crs-id'>{data.cid}</span> </div>

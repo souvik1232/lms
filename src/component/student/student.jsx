@@ -25,19 +25,14 @@ const lms = new LMS()
 class student extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
-        let loggedIn = true
-        if (token == null) {
-            loggedIn = false
-        }
+        
         this.state = {
-            name:'',
-            email:'',
-            mobile:'',
+            name: '',
+            email: '',
+            mobile: '',
             studentarr: [],
             show: false,
             open: false,
-            loggedIn
         }
 
     }
@@ -74,50 +69,56 @@ class student extends Component {
             console.log(err);
         })
     }
-    addstudent = ()=>{
+    addstudent = () => {
 
     }
     target = createRef(null)
     render() {
-        if (this.state.loggedIn === false) {
-            return <Redirect to='/login' />
-        }
+        // if (this.state.loggedIn === false) {
+        //     return <Redirect to='/login' />
+        // }
         return (
             <div>
                 <div className='details'>
-                    <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Student</Button>
-                    <div className='t1'>STUDENT DETAILS</div>
-
-                    <TableContainer className='tcont'>
-                        <Table className='main-table' aria-label="customized table">
-                            <TableHead className='t-head'>
-                                <TableRow>                                   
-                                    <TableCell id='th' align="center">Student ID</TableCell>
-                                    <TableCell id='th' align="center">Name</TableCell>
-                                    <TableCell id='th' align="center">Email ID</TableCell>
-                                    <TableCell id='th' align="center">Mobile No.</TableCell>
-                                    <TableCell id='th' align="center">Course</TableCell>
-                                    <TableCell id='th' align="center">Mentor</TableCell>
-                                    <TableCell id='th' align="center">Score</TableCell>
-                                    <TableCell id='th' align="center">Week</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody className='t-body'>
-                                {this.state.studentarr.map((data) => (
-                                    <TableRow key={data.id}>
-                                        <TableCell id='tb' align='center' >{data.sid}</TableCell>
-                                        <TableCell id='tb' align="center">{data.student}</TableCell>
-                                        <TableCell id='tb' align="center">{data.email}</TableCell>
-                                        <TableCell id='tb' align="center">{data.mobile}</TableCell>
-                                        <TableCell id='tb' align="center">{data.course}</TableCell>
-                                        <TableCell id='tb' align="center">{data.mentor}</TableCell>
-                                        <TableCell id='tb' align="center">{data.score}</TableCell>
-                                        <TableCell id='tb' align="center">{data.week}</TableCell>
+                    <div className='lac'>
+                        <div className='t1'>STUDENT DETAILS</div>
+                        <div className='t1-holder'>
+                            <img className='upload' alt="" />
+                            <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Student</Button>
+                        </div>
+                    </div><br /><br />
+                    <div className='tbl-cnt'>
+                        <TableContainer className='tcont'>
+                            <Table className='main-table' aria-label="customized table">
+                                <TableHead className='t-head'>
+                                    <TableRow>
+                                        <TableCell id='th' align="center">Student ID</TableCell>
+                                        <TableCell id='th' align="center">Name</TableCell>
+                                        <TableCell id='th' align="center">Email ID</TableCell>
+                                        <TableCell id='th' align="center">Mobile No.</TableCell>
+                                        <TableCell id='th' align="center">Course</TableCell>
+                                        <TableCell id='th' align="center">Mentor</TableCell>
+                                        <TableCell id='th' align="center">Score</TableCell>
+                                        <TableCell id='th' align="center">Week</TableCell>
                                     </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                                </TableHead>
+                                <TableBody className='t-body'>
+                                    {this.state.studentarr.map((data) => (
+                                        <TableRow key={data.id}>
+                                            <TableCell id='tb' align='center' >{data.sid}</TableCell>
+                                            <TableCell id='tb' align="center">{data.student}</TableCell>
+                                            <TableCell id='tb' align="center">{data.email}</TableCell>
+                                            <TableCell id='tb' align="center">{data.mobile}</TableCell>
+                                            <TableCell id='tb' align="center">{data.course}</TableCell>
+                                            <TableCell id='tb' align="center">{data.mentor}</TableCell>
+                                            <TableCell id='tb' align="center">{data.score}</TableCell>
+                                            <TableCell id='tb' align="center">{data.week}</TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </div>
                     <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
                         <div className='dig-container'>
                             <div className='tip'>Add Mentor</div>

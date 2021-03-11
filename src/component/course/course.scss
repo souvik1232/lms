@@ -1,7 +1,7 @@
 .card-course{
     border-radius: 11px;
     position: relative;
-    right: 110px;
+    // right: 110px;
     width: 255px;
     height: 203px;
     
@@ -21,14 +21,15 @@
     font-weight: 700;
 }
 .li1{
-    // border: 1px solid black;
+    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     overflow: auto;
     position: relative;
+    padding: 20px;
     height: 740px;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .in-div{
     display: flex;

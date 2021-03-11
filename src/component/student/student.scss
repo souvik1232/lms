@@ -1,18 +1,37 @@
+.MuiTableContainer-root {
+   width: 1500px;
+}
 .tcont{
-    position: relative;
-    top: -250px;
+    // padding: 20px;
+    width: 1200px;
+    // border: 1px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px ;
 }
 .main-table{
     padding: 15px;
-    width: 1200px;
+    // width: 1600px;
     position: relative;
     // right: 120px;
-    ;
     border: 1px solid #DEDEDE;
-    
-    border-top-left-radius: 22px;
-    border-top-right-radius: 22px ;
     background-color: #FFFFFF;
+}
+.tbl-cnt{
+    width: 1500px;
+    border: 1px solid black;
+}
+.upload{
+    content: url('../assets/icons8-upload-19.png');
+    // border: 1px solid black;
+    background-color: #40494D;
+    padding: 5px;
+    margin-right:11px;
+    width: 25px;
+    border-radius: 25px;
+    cursor:pointer;
+}
+.t1-holder{
+    display: flex;
 }
 .t-head{
     background-color: #12324B;
@@ -25,6 +44,7 @@
 #th{
     color: white;
     opacity: 40%;
+    border-right: rgb(228, 228, 228);
 }
 #tb{
     color: #575757;
