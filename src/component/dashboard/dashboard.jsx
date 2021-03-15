@@ -33,10 +33,10 @@ class dashboard extends Component {
                 <div className='container'>
                     <div className='sidebar'>
                         <img className='i1' alt='' /><br />
-                        <div className='tabs' id='tab1'><img className='i2' alt='' /><Link className='a' to={`${this.props.match.path}/home`}> Dashboard</Link></div>
-                        <div className='tabs'><Link className='a'  to={`${this.props.match.path}/mentor`}> Mentor</Link></div>
-                        <div className='tabs'><Link className='a'  to={`${this.props.match.path}/student`}>Student</Link> </div>
-                        <div className='tabs'><Link className='a'  to={`${this.props.match.path}/course`}>Course</Link> </div>
+                        <Link className='a' to={`${this.props.match.path}/home`}><div className='tabs' id='tab1'><img className='i2' alt='' /> Dashboard</div></Link>
+                        <Link className='a'  to={`${this.props.match.path}/mentor`}><div className='tabs'> Mentor</div></Link>
+                        <Link className='a'  to={`${this.props.match.path}/student`}><div className='tabs'>Student </div></Link>
+                        <Link className='a'  to={`${this.props.match.path}/course`}><div className='tabs'>Course </div></Link>
                     </div>
                     <div className='navbar'> <div className='profile'> <img alt=""/> </div> </div>
                 </div>

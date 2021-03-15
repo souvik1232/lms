@@ -2,21 +2,16 @@
     position: fixed;
     padding-top: 24px;
     width: 1450px;
-    margin-right: 45px;
-    // bottom: 800px;
+    margin-right: 75px;
     left: 16%;
+    
     top: 15%;
-    // height: 703px;
-    // border: 1px solid #E2E2E2;
     // border: 1px solid black;
-    // border-radius: 20px;
-    // background: #FAFAFA 0% 0% no-repeat padding-box;
-    // border: 1px solid black;
-    // padding: 25px;
     text-align: left;
     display: flex;
+    align-self: flex-start;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     // flex-wrap: wrap;
     // overflow: visible;
 }

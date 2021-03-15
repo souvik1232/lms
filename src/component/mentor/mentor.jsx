@@ -1,16 +1,15 @@
 import React, { Component, createRef } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import {
     ThemeProvider,
     createMuiTheme,
 } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import './mentor.scss'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Overlay from "react-bootstrap/Overlay";
-import Tooltip from "react-bootstrap/Tooltip";
+import Popper from '@material-ui/core/Popper';
 import Dialog from '@material-ui/core/Dialog';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
@@ -23,22 +22,23 @@ const lms = new LMS();
 class mentor extends Component {
     constructor(props) {
         super(props)
-    const token = localStorage.getItem('token')
-        
+        const token = localStorage.getItem('token')
+
         this.state = {
-            mentorid:'',
-            name:'',
-            email:'',
-            mobile:'',
-            mentor:[],
+            mentorid: '',
+            name: '',
+            email: '',
+            mobile: '',
+            mentor: [],
             show: false,
             mentorarray: [],
             open: false,
             course: '',
+            anchorEl: null,
         }
 
     }
-    componentDidMount(){
+    componentDidMount() {
         this.handleMentor()
     }
 
@@ -70,7 +70,7 @@ class mentor extends Component {
         this.setState({ open: false })
     };
 
-    handleMentor = () => { 
+    handleMentor = () => {
         console.log();
         lms.getmentordetails(localStorage.getItem('token')).then((data) => {
             console.log(data.data.response);
@@ -80,64 +80,75 @@ class mentor extends Component {
         })
 
     }
-    addmentor = () =>{
+    addmentor = () => {
         let data = {
-            name:this.state.name,
-            email:this.state.email,
-            mobile:this.state.mobile,
-            mentor:{course:[this.state.mentor]}
+            name: this.state.name,
+            email: this.state.email,
+            mobile: this.state.mobile,
+            mentor: { course: [this.state.mentor] }
         }
         console.log(data);
-        lms.addmentor(this.props.token ,data).then(res=>{
+        lms.addmentor(this.props.token, data).then(res => {
             console.log(res);
             this.handleMentor()
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err);
         })
     }
-    target = createRef(null)
+    store = (data) => {
+        localStorage.setItem('name', data.mentor)
+        localStorage.setItem('id', data.mid)
+        localStorage.setItem('course', data.course)
+    }
+    handleClick = (event) => {
+        console.log(event.currentTarget);
+        this.setState({
+            anchorEl: (this.state.anchorEl ? null : event.currentTarget)
+        })
+        let open1 = Boolean(this.state.anchorEl);
+        let id = open1 ? 'simple-popper' : undefined;
+        let target = createRef(null)
+    };
+
+
+
     render() {
-        // if (this.state.loggedIn === false) {
-        //     return <Redirect to='/login' />
-        // }
         return (
             // <di<.v>
-<>
+            <>
                 <div className='details'>
                     <div className='lac'>
                         <div className='t1'>MENTOR DETAILS</div>
                         <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     </div>
-                    
-                    <div className='li'>{this.state.mentorarray.map((data) => (<Card className='card-mentor'>
-                        
-                        <Card.Body >
-                        <Card.Title><div className='card-head'> <img className='mentor-img' alt="img"/> <div>{data.mentor} <br/> <span className='mid'>{data.mid} <br/> Poonam@bridgelabz.com </span></div>  <img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /><br/>
-                            </div></Card.Title>
-                            <Card.Text className='text'>
-                            <div className= 'line1'></div><br/>
-                            <div className='mid'>Course Name <span className='astudent'>No.of students</span></div>
-                            <div className='card-object'>
-                            {data.course.map((dta)=>(<div className='courselist'>{dta.course_name}<span className='scount'>{dta.student_count}</span>  </div>))}
-                            asbdka <br/>dbajdba <br/>jhadbhjabhdj <br/>nwbjebjf <br/>bejbwew <br/>jhwevhjdv <br/>
-                            </div></Card.Text>
-                            
 
-                        </Card.Body>
-                        
-                    </Card>))}</div>
-                    
-                    
-                    <Overlay target={this.target.current} show={this.state.show} placement="bottom">
-                            {(props) => (
-                                <Tooltip id="overlay-example" {...props}>
-                                    <div className='tooltip'>
-                                        <span className='tool1'>Edit</span><br />
-                                        <span className='tool2'>Delete</span>
-                                    </div>
-                                </Tooltip>
-                            )}
-                        </Overlay>
+                    <div className='li'>{this.state.mentorarray.map((data) => (
+                        <Card className='card-mentor' onClick={this.store(data)}>
+
+                            <Card.Body >
+                                <Card.Title><div className='card-head'> <img className='mentor-img' alt="img" /> <div>{data.mentor} <br /> <span className='mid'>{data.mid} <br /> Poonam@bridgelabz.com </span></div>  <img className='dot1' aria-describedby={this.id} alt='img' onClick={this.handleClick} /><br />
+                                </div></Card.Title>
+                                <Link className='an' to={`${this.props.match.path}/details`}>
+                                    <Card.Text className='text'>
+                                        <div className='line1'></div><br />
+                                        <div className='mid'>Course Name <span className='astudent'>No.of students</span></div>
+                                        <div className='card-object'>
+                                            {data.course.map((dta) => (<div className='courselist'>{dta.course_name}<span className='scount'>{dta.student_count}</span>  </div>))}
+                            asbdka <br />dbajdba <br />jhadbhjabhdj <br />nwbjebjf <br />bejbwew <br />jhwevhjdv <br />
+                                        </div></Card.Text>
+                                </Link>
+
+                            </Card.Body>
+                        </Card>
+                    ))}</div>
+
+                    <div>
+                        <Popper id='simple-popper' open={Boolean(this.state.anchorEl)} anchorEl={this.state.anchorEl}>
+                            <div className='paper'><span className='tool1'>Edit</span><br />
+                                <span className='tool2'>Delete</span></div>
+                        </Popper>
+                    </div>
+
                 </div>
 
 
@@ -179,8 +190,8 @@ class mentor extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-      token: state.state,
+        token: state.state,
     };
-  };
+};
 
-  export default connect(mapStateToProps,undefined) (mentor);
+export default connect(mapStateToProps, undefined)(mentor);

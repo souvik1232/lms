@@ -8,12 +8,12 @@ export default class mentordetails extends Component {
     
     render() {
         return (
-            <div>
+            <>
                 <div className='details1'>
                     <div className='hold'>
                         <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>Mentor Name</div> <br />
-                            <div className='mid1'>MID2026</div>
+                            <div className='name'>{localStorage.getItem('name')}</div> <br />
+                            <div className='mid1'>{localStorage.getItem('id')}</div>
                         </div>
                         <div className='details-hold'>
                             <br />
@@ -24,7 +24,7 @@ export default class mentordetails extends Component {
                             </div>
                             <br/><br/>
                             <div className='info-1'>Total no. of Courses <div className='ct'>08</div></div><br/>
-                            <div className='info-1'>Total no. of Students <div className='ct'>110</div></div><br/>
+                            <div className='info-1'>Total no. of Students <div className='ct'>{}</div></div><br/>
 
                         </div>
 
@@ -48,7 +48,7 @@ export default class mentordetails extends Component {
                         </div></div>
 
                 </div>
-            </div >
+            </ >
         )
     }
 }

@@ -1,20 +1,20 @@
 .details1{
     position: fixed;
     width: 1450px;
-    margin-right: 45px;
+    // margin-right: 45px;
     // bottom: 800px;
-    left: 16%;
+    left: 297px;
     top: 15%;
     height: 703px;
     border: 1px solid #E2E2E2;
     border-radius: 20px;
     background: #FAFAFA 0% 0% no-repeat padding-box;
     // border: 1px solid black;
-    // padding: 25px;
+    padding: 25px;
     text-align: left;
     display: flex;
     flex-wrap: wrap;
-    overflow: visible;
+    overflow-y: hidden;
 }
 .hold{
     // border: 1px solid #DEE5EE; 
@@ -202,4 +202,11 @@ color:#9EBFE0;
     justify-content: center;
     color: white;
     font-size: 17px;
+}
+@media (max-width:1600px) and (min-width:770px){
+    .details1{
+        // border: 1px solid black;
+        position: fixed;
+        right:255px;
+    }
 }

@@ -9,6 +9,7 @@ import './course.scss'
 import Card from "react-bootstrap/Card";
 import {connect} from 'react-redux'
 import Button from "react-bootstrap/Button";
+import Popper from '@material-ui/core/Popper';
 import Overlay from "react-bootstrap/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
 import Dialog from '@material-ui/core/Dialog';
@@ -27,6 +28,7 @@ class course extends Component {
             show: false,
             open: false,
             coursearray: [],
+            anchorEl: null,
         }
 
     }
@@ -79,7 +81,14 @@ class course extends Component {
             console.log(err);
         })
     }
-    target = createRef(null)
+    handleClick = (event) => {
+        console.log(event.currentTarget);
+        this.setState({
+            anchorEl :(this.state.anchorEl ? null : event.currentTarget)
+        })
+        let open1 = Boolean(this.state.anchorEl);
+        let id = open1 ? 'simple-popper' : undefined;
+      };
     render() {
         // if (this.state.loggedIn === false) {
         //     return <Redirect to='/login' />
@@ -96,7 +105,7 @@ class course extends Component {
                     
                     <div className='li1'>{this.state.coursearray.map((data) => (<Card className='card-course'>
                         <Card.Body>
-                            <div className='card-head1'>{data.course_name}<img className='dot1' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /> <br/> <span className='crs-id'>{data.cid}</span> </div>
+                            <div className='card-head1'> <div className='yui'>{data.course_name}<img className='dot1' alt='' onClick={this.handleClick} /></div>   <span className='crs-id'>{data.cid}</span> </div>
                             <div className='price'>₹ {data.course_price} / {data.duration_weeks} <span className='mnth'> months</span> </div>
                             <div className='txt-crs'><span >{data.description}</span></div>
                         </Card.Body>
@@ -104,16 +113,13 @@ class course extends Component {
                     </Card>
                     ))}</div>
                     
-                    <Overlay target={this.target.current} show={this.state.show} placement="bottom">
-                        {(props) => (
-                            <Tooltip id="overlay-example" {...props}>
-                                <div className='tooltip'>
-                                    <span className='tool1'>Edit</span><br />
-                                    <span className='tool2'>Delete</span>
-                                </div>
-                            </Tooltip>
-                        )}
-                    </Overlay>
+
+                    <div>
+                        <Popper id='simple-popper' open={Boolean(this.state.anchorEl)} anchorEl={this.state.anchorEl}>
+                            <div className='paper'><span className='tool1'>Edit</span><br />
+                                        <span className='tool2'>Delete</span></div>
+                        </Popper>
+                    </div>
 
                 </div>
 

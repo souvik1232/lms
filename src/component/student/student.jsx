@@ -25,7 +25,7 @@ const lms = new LMS()
 class student extends Component {
     constructor(props) {
         super(props)
-        
+
         this.state = {
             name: '',
             email: '',
@@ -33,6 +33,7 @@ class student extends Component {
             studentarr: [],
             show: false,
             open: false,
+            openmod: false,
         }
 
     }
@@ -55,10 +56,19 @@ class student extends Component {
             open: !this.state.open,
         })
     };
+    handleClickOpenMod = (e) => {
+        // e.stopPropagation();
+        this.setState({
+            openmod: !this.state.openmod,
+        })
+    };
 
 
     handleClose = () => {
         this.setState({ open: false })
+    };
+    handleCloseMod = () => {
+        this.setState({ openmod: false })
     };
 
     getstudent = () => {
@@ -83,7 +93,7 @@ class student extends Component {
                     <div className='lac'>
                         <div className='t1'>STUDENT DETAILS</div>
                         <div className='t1-holder'>
-                            <img className='upload' alt="" />
+                            <img className='upload' alt="" onClick={(e) => this.handleClickOpenMod(e)} />
                             <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Student</Button>
                         </div>
                     </div><br /><br />
@@ -162,6 +172,26 @@ class student extends Component {
                             </ThemeProvider></div><br /><br />
                             <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2'>Add</button></div>
                         </div>
+                    </Dialog>
+                    <Dialog onClose={this.handleCloseMod} aria-labelledby="customized-dialog-title" open={this.state.openmod} >
+                        <div className='md12'>
+                            <div className='hd12'>
+                                <div className='cross' onClick={(e) => this.handleClickOpenMod(e)}>X</div>
+                                <div className='titl'> Upload Engineers Data</div>
+                            </div>
+                            <br /><br /><br />
+                            <div className='bd12'>
+                                <div >
+                                    <div className='bd-1'>Choose file</div>
+                                    <div className='frmt' >File format:XLSX</div>
+                                </div>
+                                <div className='bd-2'>No file choosen</div>
+                            </div>
+                            <br/>
+                            <div className='ft12'>
+                                <button className='upload12'><img className='cloud' alt=""/>  Upload</button>
+                            </div>
+                        </div> 
                     </Dialog>
                 </div>
             </div >

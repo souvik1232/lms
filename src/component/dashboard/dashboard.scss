@@ -3,48 +3,40 @@
     // border: 1px solid #000000;
     display: flex;
     align-items:flex-start;
-    // position: relative;
 
 }
 .details{
     position: fixed;
-    // width: 1300px;
-    margin-right: 45px;
-    // bottom: 800px;
+    margin-right: 75px;
     left: 15%;
     top: 11%;
-    // height: 753px;
     // border: 1px solid #000000;
-    // border: 1px solid #DEE5EE;
-    // padding: 25px;
     text-align: left;
     display: flex;
     flex-direction: column;
-    // flex-wrap: wrap;
     align-self: flex-start;
     justify-content: center;
     overflow: visible;
-    // align-items:stretch;
-    // width: 100px;
-    // overflow: auto;
-
 }
 .a{
     text-decoration: none;
+    // color: black;
 }
 .a:visited {
     text-decoration: none;
   }
   
 .sidebar{
-    // padding: 10px;
     border: 2px solid #DEE5EE;
     justify-content: center;
     text-align: left;
-    // width: 235px;
     height: 940px;
+    // width: 70px;
     flex-basis: auto;
+    z-index: 1;
+    background-color: white;
 }
+
 .i1{
     content: url('../assets/BridgeLabzVirtual.png');
     width: 78px;
@@ -93,66 +85,66 @@
     border-radius: 12px;
     padding: 10px;
     position: relative;
-    right: 10px;
     margin: 9px;
-    display: flex;
-    z-index: 0;
 }
 .card:hover{
     box-shadow: 0px 3px 6px #00000029;
     transition: 0.5s;
 }
 .card-head{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
     font-size: 15px;
     font-weight: 500;
     color: #40494D;
+    // border: 1px solid black;
 }
 .dot{
     content: url('../assets/ic_more_vert_24px.svg');
-    position: relative;
     left:35px;
     // border: 1px solid black;
     width: 3px;
-    padding-left: 6.5px;
-    padding-right: 6.5px;
+    padding-left: 9px;
+    padding-right: 9px;
     padding-top: 1px;
     padding-bottom: 1px;
-    border-radius: 9px;
+    border-radius: 12px;
     background-color: #F5F5F5;
+    cursor: pointer;
 }
 .contain{
     display: flex;
+    justify-content:space-evenly ;
 }
 .a1{
     position: relative;
-    left: 59px;
+
     font-size: 16px;
-    // border: 1px solid black;
-    // width: 5px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 .b1{
     font-size: 12px;
     color: #666D70;
     position: relative;
-    right: 10px;
 }
 .line{
     border: 1px solid #DEE5EE;
     position: relative;
-    left: 99px;
 }
 .a2{
     position: relative;
-    left: 155px;
+    display: flex;
+    flex-direction: column;
     font-size: 16px;
-    // border: 1px solid black;
+    align-items: center;
 }
 .b2{
     font-size: 12px;
     color: #666D70;
     position: relative;
-    right: 19px;
 }
 .tooltip{
     z-index: 1;
@@ -160,7 +152,6 @@
     height: 80px;
     border: 1px solid #F2F5F7;
     box-shadow: 0px 3px 6px #00000029;
-    // opacity: 1;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     text-align: left;
 }
@@ -180,8 +171,6 @@
     top: 15px;
 }
 .t1{
-    // position: absolute;
-    // top: -20px;
     font-weight: bold;
     font-size: 14px;
     color: #40494D;
@@ -192,45 +181,55 @@
     width: 19px;
     position: relative;
     margin-right: 75px;
-    // right: 150px;
     background-color: #DEE5EE;
     border: #DEE5EE;
     border-radius: 22px;
     padding: 12px 12px 12px 12px;
     
 }
-@media (max-width:1200px){
+@media (max-width:771px) and (min-width:635px){
+    .details{
+        display: flex;
+        position:fixed;
+        left: 250px;
+        flex-direction: column; 
+    }
+}
+@media (max-width:634px){
     .sidebar{
-        width: 200px;
+        width: 120px;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.5s;
+        z-index: 1;
+    }
+    .sidebar:hover{
+        width: 100%;
+        z-index: 1;
     }
     .tabs{
-        width: 200px;
+        position: relative;
+        right: 24px;
+        width: 172px;
     }
-}
-@media (max-width:780px){
+    
     .details{
-        display: block;
-        position:absolute;
-        left: 250px;
-        flex-direction: column;
+        // border: 1px solid black;
+        position: fixed;
+        left: 60px;
+        right: -50px;
     }
-}
-@media (max-width:620px){
-    .container{
-        width: 120%;
-    }
-    .details{
-        position: absolute;
-        right: 42px;
+    .i1{
+        position: relative;
+        left: 42px ;
     }
 }
 @media (max-width:450px){
     .container{
-        width: 163%;
         
     }
-    .details{
-        position: absolute;
-        right: 42px;
-    }
+    // .details{
+    //     position: absolute;
+    //     right: 42px;
+    // }
 }
