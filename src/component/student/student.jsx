@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
 import {
     ThemeProvider,
@@ -114,8 +114,8 @@ class student extends Component {
                                 </TableHead>
                                 <TableBody className='t-body'>
                                     {this.state.studentarr.map((data) => (
-                                        <TableRow key={data.id}>
-                                            <TableCell id='tb' align='center' >{data.sid}</TableCell>
+                                       <TableRow className='tbr' key={data.id}>
+                                           <Link className='an' to={`/dashboard/studentdetails`}>  <TableCell id='tb' align='center' >{data.sid}</TableCell></Link>
                                             <TableCell id='tb' align="center">{data.student}</TableCell>
                                             <TableCell id='tb' align="center">{data.email}</TableCell>
                                             <TableCell id='tb' align="center">{data.mobile}</TableCell>

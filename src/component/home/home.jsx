@@ -38,7 +38,7 @@ export default class home extends Component {
 
                             <Card.Body>
                                 <div className='card-head'> <div>Java Full Stack with Angular6</div>  <img className='dot' alt='' ref={this.target} onClick={() => this.setState({ show: !this.state.show })} /></div><br /><br />
-                                <Link className='an' to={`${this.props.match.path}/mentorcoursedetails`}>
+                                <Link className='an' to={`/dashboard/mentorcoursedetails`}>
                                     <div className='contain'>
                                         <div className='a1'>
                                             25 <br />

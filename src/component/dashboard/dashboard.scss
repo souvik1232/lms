@@ -195,16 +195,17 @@
         flex-direction: column; 
     }
 }
-@media (max-width:634px){
+@media (max-width:634px) {
     .sidebar{
-        width: 120px;
+        position: fixed;
+        width: 40px;
         justify-content: center;
         overflow: hidden;
         transition: 0.5s;
         z-index: 1;
     }
     .sidebar:hover{
-        width: 100%;
+        width: 150px;
         z-index: 1;
     }
     .tabs{
@@ -214,22 +215,20 @@
     }
     
     .details{
-        // border: 1px solid black;
+        
         position: fixed;
+        
         left: 60px;
         right: -50px;
+        // border: 1px solid black;
     }
     .i1{
         position: relative;
         left: 42px ;
     }
 }
-@media (max-width:450px){
-    .container{
-        
+@media (max-height:730px){
+    .details{
+        top: 130px;
     }
-    // .details{
-    //     position: absolute;
-    //     right: 42px;
-    // }
 }

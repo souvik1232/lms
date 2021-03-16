@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './dashboardunique.scss'
 import LMS from '../../service/lmsservice'
+import Addmentor from '../addmentor/addmentor';
+import Dialog from '@material-ui/core/Dialog';
 const lms = new LMS();
 
 export default class dashboardunique extends Component {
@@ -37,6 +39,24 @@ export default class dashboardunique extends Component {
             console.log(err);
         })
     }
+    handleClickOpen = (e) => {
+        // e.stopPropagation();
+        this.setState({
+            open: !this.state.open,
+        })
+    };
+
+
+    handleChange = (event) => {
+        this.setState({
+            mentor: event.target.value
+        })
+    }
+
+
+    handleClose = () => {
+        this.setState({ open: false })
+    };
     render() {
         return (
             <div>
@@ -44,7 +64,7 @@ export default class dashboardunique extends Component {
                     <div className='divi1'>
                         < div className='h'>
                             <div className='h-t'>Mentors - 04</div>
-                            <button className='buto4'>Add Mentor</button>
+                            <button className='buto4' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</button>
                         </div>
                         <br />
                         <div className='f'>
@@ -68,6 +88,10 @@ export default class dashboardunique extends Component {
                         </div>
                     </div>
                 </div>
+                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
+                    <Addmentor close={this.handleClose}
+                        refresh={this.handleMentor} />
+                </Dialog>
             </div>
         )
     }

@@ -9,6 +9,7 @@ import mentordetails from './component/mentordetails/mentordetails'
 import dashboard1 from './component/dashboard-unique/dashboardunique'
 import PrivateRoute from './component/privateroute/privateroute';
 import AuthRoute from './component/authroute/authroute';
+import studentdetail from './component/studentdetail/studentdetail';
 
 function RRouter() {
     return (
@@ -21,8 +22,9 @@ function RRouter() {
             <PrivateRoute path="/dashboard/mentor" component={mentor} />
             <PrivateRoute path="/dashboard/student" component={student} />
             <PrivateRoute path="/dashboard/course" component={course} />
-            <PrivateRoute path="/dashboard/mentor/details" component={mentordetails} />
-            <PrivateRoute exact path="/dashboard/home/mentorcoursedetails" component={dashboard1} />
+            <PrivateRoute path="/dashboard/details" component={mentordetails} />
+            <PrivateRoute exact path="/dashboard/studentdetails" component={studentdetail} />
+            <PrivateRoute exact path="/dashboard/mentorcoursedetails" component={dashboard1} />
   
   
             {/* </Switch> */}

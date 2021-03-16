@@ -15,6 +15,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import LMS from '../../service/lmsservice'
+import Addmentor from '../addmentor/addmentor';
 const lms = new LMS();
 
 
@@ -25,11 +26,6 @@ class mentor extends Component {
         const token = localStorage.getItem('token')
 
         this.state = {
-            mentorid: '',
-            name: '',
-            email: '',
-            mobile: '',
-            mentor: [],
             show: false,
             mentorarray: [],
             open: false,
@@ -52,7 +48,7 @@ class mentor extends Component {
 
 
     handleClickOpen = (e) => {
-        // e.stopPropagation();
+        console.log('hey');
         this.setState({
             open: !this.state.open,
         })
@@ -80,28 +76,12 @@ class mentor extends Component {
         })
 
     }
-    addmentor = () => {
-        let data = {
-            name: this.state.name,
-            email: this.state.email,
-            mobile: this.state.mobile,
-            mentor: { course: [this.state.mentor] }
-        }
-        console.log(data);
-        lms.addmentor(this.props.token, data).then(res => {
-            console.log(res);
-            this.handleMentor()
-        }).catch(err => {
-            console.log(err);
-        })
-    }
-    store = (data) => {
-        localStorage.setItem('name', data.mentor)
-        localStorage.setItem('id', data.mid)
-        localStorage.setItem('course', data.course)
+    store = (event) => {
+        console.log(event.currentTarget.id);
+        localStorage.setItem('mentor', this.state.mentorarray[event.currentTarget.id].mentor);
+        localStorage.setItem('id', this.state.mentorarray[event.currentTarget.id].mid);
     }
     handleClick = (event) => {
-        console.log(event.currentTarget);
         this.setState({
             anchorEl: (this.state.anchorEl ? null : event.currentTarget)
         })
@@ -114,21 +94,19 @@ class mentor extends Component {
 
     render() {
         return (
-            // <di<.v>
             <>
                 <div className='details'>
                     <div className='lac'>
                         <div className='t1'>MENTOR DETAILS</div>
                         <Button className='buto1' onClick={(e) => this.handleClickOpen(e)}>Add Mentor</Button>
                     </div>
-
-                    <div className='li'>{this.state.mentorarray.map((data) => (
-                        <Card className='card-mentor' onClick={this.store(data)}>
+                    <div className='li'>{this.state.mentorarray.map((data, index) => (
+                        <Card className='card-mentor' id={index} onClick={(e) => this.store(e)}>
 
                             <Card.Body >
                                 <Card.Title><div className='card-head'> <img className='mentor-img' alt="img" /> <div>{data.mentor} <br /> <span className='mid'>{data.mid} <br /> Poonam@bridgelabz.com </span></div>  <img className='dot1' aria-describedby={this.id} alt='img' onClick={this.handleClick} /><br />
                                 </div></Card.Title>
-                                <Link className='an' to={`${this.props.match.path}/details`}>
+                                <Link className='an' to={`/dashboard/details`}>
                                     <Card.Text className='text'>
                                         <div className='line1'></div><br />
                                         <div className='mid'>Course Name <span className='astudent'>No.of students</span></div>
@@ -141,48 +119,16 @@ class mentor extends Component {
                             </Card.Body>
                         </Card>
                     ))}</div>
-
                     <div>
                         <Popper id='simple-popper' open={Boolean(this.state.anchorEl)} anchorEl={this.state.anchorEl}>
                             <div className='paper'><span className='tool1'>Edit</span><br />
                                 <span className='tool2'>Delete</span></div>
                         </Popper>
                     </div>
-
                 </div>
-
-
-
                 <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
-                    <div className='dig-container'>
-                        <div className='tip'>Add Mentor</div>
-                        <div><ThemeProvider theme={this.theme}>
-                            <TextField id="outlined-basic2" size='small' label="Mentor ID" variant="outlined" onChange={(e) => { this.setState({ mentorid: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Name" variant="outlined" onChange={(e) => { this.setState({ name: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Email Id" variant="outlined" onChange={(e) => { this.setState({ email: e.target.value }) }} /><br /><br />
-                            <TextField id="outlined-basic2" size='small' label="Mobile Number" variant="outlined" onChange={(e) => { this.setState({ mobile: e.target.value }) }} /><br /><br />
-                            {/* <TextField onClick={this.handleClick} type='text' size='small' id="outlined-basic2" label="Course" variant="outlined" onChange={(e) => { this.setState({ password: e.target.value }) }} /><br /> */}
-                            <FormControl variant="outlined"  >
-                                <InputLabel htmlFor="outlined-age-native-simple">Course</InputLabel>
-                                <Select
-                                    id="outlined-basic-drop"
-                                    native
-                                    value={this.state.mentor}
-                                    onChange={this.handleChange}
-                                    label="Course"
-                                >
-                                    <option aria-label="None" value="" />
-                                    <option value={1}>Python</option>
-                                    <option value={2}>Django</option>
-                                    <option value={3}>Java</option>
-                                    <option value={4}>React</option>
-                                    <option value={5}>Angular</option>
-                                    <option value={6}>JavaScript</option>
-                                </Select>
-                            </FormControl>
-                        </ThemeProvider></div><br /><br />
-                        <div className='but-container'><button className='bu1' onClick={(e) => this.handleClickOpen(e)}>Cancel</button><button className='bu2' onClick={this.addmentor}>Add</button></div>
-                    </div>
+                    <Addmentor close={this.handleClose}
+                        refresh={this.handleMentor} />
                 </Dialog>
             </>
         )
