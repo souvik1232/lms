@@ -1,76 +1,10 @@
 import React, { Component } from 'react'
 import './studentdetail.scss'
-// import Dialog from '@material-ui/core/Dialog';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import Select from '@material-ui/core/Select';
-// import FormControl from '@material-ui/core/FormControl';
-// import TextField from '@material-ui/core/TextField';
-// import {
-//     ThemeProvider,
-//     createMuiTheme,
-// } from '@material-ui/core/styles';
 import LMS from '../../service/lmsservice'
 const lms = new LMS();
 
 
 export default class studentdetail extends Component {
-    // componentDidMount() {
-    //     this.handleMentor()
-    // }
-
-    // theme = createMuiTheme({
-    //     palette: {
-    //         primary: {
-    //             main: '#008CFF',
-    //         }
-    //     },
-    // });
-
-
-    // handleClickOpen = (e) => {
-    //     // e.stopPropagation();
-    //     this.setState({
-    //         open: !this.state.open,
-    //     })
-    // };
-
-
-    // handleChange = (event) => {
-    //     this.setState({
-    //         mentor: event.target.value
-    //     })
-    // }
-
-
-    // handleClose = () => {
-    //     this.setState({ open: false })
-    // };
-
-    // handleMentor = () => {
-    //     console.log();
-    //     lms.getmentordetails(localStorage.getItem('token')).then((data) => {
-    //         console.log(data.data.response);
-    //         this.setState({ mentorarray: data.data.response })
-    //     }).catch((err) => {
-    //         console.log(err);
-    //     })
-
-    // }
-    // addmentor = () => {
-    //     let data = {
-    //         name: this.state.name,
-    //         email: this.state.email,
-    //         mobile: this.state.mobile,
-    //         mentor: { course: [this.state.mentor] }
-    //     }
-    //     console.log(data);
-    //     lms.addmentor(this.props.token, data).then(res => {
-    //         console.log(res);
-    //         this.handleMentor()
-    //     }).catch(err => {
-    //         console.log(err);
-    //     })
-    // }
 
     render() {
         return (
@@ -96,17 +30,32 @@ export default class studentdetail extends Component {
                             <div className='cntct'>
                                 <div className='cntct-label'>Contact</div> <br />
                                 <div className='cntct-nb'><div className='nb-label'>Alternate Contact No.</div> <div className='nb'>0987654321</div>
-                                </div><br/><br/><br/>
+                                </div><br /><br /><br />
                                 <div className='cntct-nb'> <div className='nb-label'>Alternate Contact Relation</div> <div className='nb'>Lorem ipsum</div> </div>
                             </div><br /><br /><br />
-                            <div className='addrs'><div className='cntct-label'>Address</div> <br/>
-                            <div className='cntct-nb'><div className='nb-label'>Current Address</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur sad ips cing elitr, <br/> sed diam nonumy eirmod tempor invidunt ut labore.</div>
-                                </div><br/><br/>
-                                <div className='cntct-nb'> <div className='nb-label'>Permanent Address</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur sad ips cing elitr, <br/> sed diam nonumy eirmod tempor invidunt ut labore.</div> </div>
+                            <div className='addrs'><div className='cntct-label'>Address</div> <br />
+                                <div className='cntct-nb'><div className='nb-label'>Current Address</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur sad ips cing elitr, <br /> sed diam nonumy eirmod tempor invidunt ut labore.</div>
+                                </div><br /><br />
+                                <div className='cntct-nb'> <div className='nb-label'>Permanent Address</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur sad ips cing elitr, <br /> sed diam nonumy eirmod tempor invidunt ut labore.</div> </div>
                             </div>
                         </div>
-                        <div className='educat'><div className='cntct-label'>Education</div> <br/>
-                        <div className='cntct-nb'><div className='nb-label'>College</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur</div></div>
+                        <div className='educat'><div className='cntct-label'>Education</div> <br />
+                            <div className='cntct-nb'><div className='nb-label'>College</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur</div></div><br />
+                            <div className='cntct-nb'><div className='nb-label'>University</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur</div></div><br /><br/>
+                            <div className='cntct-nb'><div className='nb-label'>Degree</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur</div></div><br /><br/>
+                            <div className='cntct-nb'><div className='nb-label'>Stream</div> <div className='nb'>Lorem ipsum dolor sit</div></div><br /><br/>
+                            <div className='cntct-nb-b'>
+                                <div><div className='nb-label'>Year of passing</div> <div className='nb'>2018</div></div>
+                                <div className='line'></div>
+                                <div><div className='nb-label'>Degree Percentage</div> <div className='nb'>83%</div></div>
+                            </div><br /><br/>
+                            <div className='cntct-nb'><div className='nb-label'>Mastres</div> <div className='nb'>Lorem ipsum dolor sit amet, consetetur</div></div><br />
+                            <div className='cntct-nb'><div className='nb-label'>Stream</div> <div className='nb'>Lorem ipsum dolor sit</div></div><br />
+                            <div className='cntct-nb-b'>
+                                <div><div className='nb-label'>Year of passing</div> <div className='nb'>2018</div></div>
+                                <div className='line'></div>
+                                <div><div className='nb-label'>Masters Percentage</div> <div className='nb'>83%</div></div>
+                            </div><br />
                         </div>
                     </div>
 

@@ -1,19 +1,14 @@
-import React, { Component, createRef } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {
-    ThemeProvider,
     createMuiTheme,
 } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import './mentor.scss'
 import { connect } from 'react-redux'
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Popper from '@material-ui/core/Popper';
 import Dialog from '@material-ui/core/Dialog';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
 import LMS from '../../service/lmsservice'
 import Addmentor from '../addmentor/addmentor';
 const lms = new LMS();
@@ -23,7 +18,6 @@ const lms = new LMS();
 class mentor extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
 
         this.state = {
             show: false,
@@ -85,9 +79,6 @@ class mentor extends Component {
         this.setState({
             anchorEl: (this.state.anchorEl ? null : event.currentTarget)
         })
-        let open1 = Boolean(this.state.anchorEl);
-        let id = open1 ? 'simple-popper' : undefined;
-        let target = createRef(null)
     };
 
 

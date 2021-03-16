@@ -1,5 +1,4 @@
-import React, { Component, createRef } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { Component } from 'react'
 import {
     ThemeProvider,
     createMuiTheme,
@@ -10,8 +9,6 @@ import Card from "react-bootstrap/Card";
 import {connect} from 'react-redux'
 import Button from "react-bootstrap/Button";
 import Popper from '@material-ui/core/Popper';
-import Overlay from "react-bootstrap/Overlay";
-import Tooltip from "react-bootstrap/Tooltip";
 import Dialog from '@material-ui/core/Dialog';
 import LMS from '../../service/lmsservice';
 const lms = new LMS();
@@ -81,13 +78,15 @@ class course extends Component {
             console.log(err);
         })
     }
+
+    deleteCourse = () =>{
+        
+    }
     handleClick = (event) => {
         console.log(event.currentTarget);
         this.setState({
             anchorEl :(this.state.anchorEl ? null : event.currentTarget)
         })
-        let open1 = Boolean(this.state.anchorEl);
-        let id = open1 ? 'simple-popper' : undefined;
       };
     render() {
         // if (this.state.loggedIn === false) {

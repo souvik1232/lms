@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './dashboardunique.scss'
 import LMS from '../../service/lmsservice'
 import Addmentor from '../addmentor/addmentor';
+import Addstudent from '../addstudent/addstudent';
 import Dialog from '@material-ui/core/Dialog';
 const lms = new LMS();
 
@@ -21,7 +22,6 @@ export default class dashboardunique extends Component {
         this.handleMentor()
     }
     handleMentor = () => {
-        // console.log('asdas');
         lms.getmentordetails(localStorage.getItem('token')).then((data) => {
             console.log(data.data.response);
             this.setState({ mentorarray: data.data.response })
@@ -46,6 +46,13 @@ export default class dashboardunique extends Component {
         })
     };
 
+    handleClickOpenn = (e) => {
+        // e.stopPropagation();
+        this.setState({
+            openn: !this.state.openn,
+        })
+    };
+
 
     handleChange = (event) => {
         this.setState({
@@ -56,6 +63,7 @@ export default class dashboardunique extends Component {
 
     handleClose = () => {
         this.setState({ open: false })
+        this.setState({ openn: false })
     };
     render() {
         return (
@@ -80,7 +88,7 @@ export default class dashboardunique extends Component {
                     <div className='divi2'>
                         <div className='h'>
                             <div className='h-t'>Student Name - 25</div>
-                            <button className='buto4'>Add Student</button>
+                            <button className='buto4' onClick={(e) => this.handleClickOpenn(e)}>Add Student</button>
                         </div>
                         <br />
                         <div className='f'>
@@ -91,6 +99,9 @@ export default class dashboardunique extends Component {
                 <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
                     <Addmentor close={this.handleClose}
                         refresh={this.handleMentor} />
+                </Dialog>
+                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.openn} >
+                    <Addstudent close={this.handleClose}/>
                 </Dialog>
             </div>
         )

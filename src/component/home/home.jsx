@@ -1,7 +1,6 @@
 import React, { Component, createRef } from 'react'
-import { Redirect, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Card from "react-bootstrap/Card";
-// import Button from "react-bootstrap/Button";
 import Overlay from "react-bootstrap/Overlay";
 import Tooltip from "react-bootstrap/Tooltip";
 import './home.scss'

@@ -1,8 +1,4 @@
-import axios from "axios";
 import Axios from "./axiosservice";
-import { connect } from 'react-redux'
-
-
 const axiosService = new Axios()
 
 class LmsService {
@@ -30,6 +26,9 @@ class LmsService {
     }
     addstudent = (token, data) => {
         return axiosService.POST('students/', data, token)
+    }
+    deletestudent = (token,id) =>{
+        return 
     }
 }
 export default LmsService

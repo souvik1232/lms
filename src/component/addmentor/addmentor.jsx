@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Dialog from '@material-ui/core/Dialog';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
@@ -14,7 +13,6 @@ const lms = new LMS();
 export default class addmentor extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
 
         this.state = {
             mentorid: '',

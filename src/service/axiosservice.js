@@ -10,17 +10,21 @@ export default class Axios{
     POST(url,data,token){
         return axios.post(baseurl1+url,data,{
             headers: {
-                'Authorization': token,
-                
+                'Authorization': token, 
             }
         })
     }
     Get(url,token){
-        console.log(token);
         return axios.get(baseurl1+url,{
             headers: {
-                'Authorization': token,
-                
+                'Authorization': token, 
+            }
+        })
+    }
+    Delete(url,id,token){
+        return axios.delete(baseurl1+url,id,{
+            headers: {
+                'Authorization': token, 
             }
         })
     }

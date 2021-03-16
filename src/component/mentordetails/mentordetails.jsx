@@ -8,7 +8,6 @@ const lms = new LMS();
 export default class mentordetails extends Component {
     constructor(props) {
         super(props)
-        const token = localStorage.getItem('token')
 
         this.state = {
             show: false,
