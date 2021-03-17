@@ -43,7 +43,6 @@ class login extends Component {
         loginlms.loginlms(req).then((data) => {
             // console.log(data.headers.get('authorization'));
             console.log(data);
-            this.props.logged(data.headers.authorization)
             localStorage.setItem("token",data.headers.authorization)
             this.setState({ snackbaropen: true, snackbarmsg: 'Logged In' })
             this.setState({
@@ -103,4 +102,4 @@ class login extends Component {
     }
 }
 
-export default connect(null,{logged:logged})( login)
+export default  login

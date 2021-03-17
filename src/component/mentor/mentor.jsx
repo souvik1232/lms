@@ -11,6 +11,7 @@ import Popper from '@material-ui/core/Popper';
 import Dialog from '@material-ui/core/Dialog';
 import LMS from '../../service/lmsservice'
 import Addmentor from '../addmentor/addmentor';
+import {mentordata} from '../../action/action'
 const lms = new LMS();
 
 
@@ -74,6 +75,7 @@ class mentor extends Component {
         console.log(event.currentTarget.id);
         localStorage.setItem('mentor', this.state.mentorarray[event.currentTarget.id].mentor);
         localStorage.setItem('id', this.state.mentorarray[event.currentTarget.id].mid);
+        this.props.mendata(this.state.mentorarray[event.currentTarget.id]);
     }
     handleClick = (event) => {
         this.setState({
@@ -125,10 +127,8 @@ class mentor extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        token: state.state,
-    };
-};
+const mapDispatchToProprs = {
+    mendata:mentordata,
+  };
 
-export default connect(mapStateToProps, undefined)(mentor);
+export default connect(null, mapDispatchToProprs)(mentor);

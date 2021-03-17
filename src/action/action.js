@@ -1,7 +1,7 @@
-export const LOGIN = 'LOGIN'
-export  const logged = (token)=>{
+export const MENTOR = 'MENTOR'
+export const mentordata = (data)=>{
     return{
-        type:LOGIN,
-        payload:token
+        type:MENTOR,
+        payload:data
     }
 }

@@ -25,6 +25,7 @@
 .a:visited {
     text-decoration: none;
   }
+
   
 .sidebar{
     border: 2px solid #DEE5EE;
@@ -46,13 +47,28 @@
 .i2{
     content: url('../assets/Group\ 3621.svg');
     position: relative;
-    right: 19px;
+    width: 20px;
+    margin-left:11px
+}
+.i3{
+    content: url('../assets/stamper.svg');
+    position: relative;
+    width: 20px;
+    opacity: 70%;
+}
+.i4{
+    content: url('../assets/graduation-cap-solid.svg');
+    position: relative;
+    width: 20px;
+    opacity: 70%;
 }
 .tabs{
+    justify-content: space-evenly;
+    display: flex;
     width: 234px;
     height: 41px;
     border-left: 1px solid #DEE5EE;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     line-height: 41px;
     color: #40494D;
@@ -67,6 +83,13 @@
     background-color: #E4F3FF;
     border-left:3px solid #008CFF;
     font-weight: bolder;
+    transition: 0.3s;
+}
+.tabs.active{
+    transition: 0.3s;
+    background-color:#d3d5d6;
+    color: #40494D;
+    border-left: 1px solid ;
 }
 .navbar{
     border: 1px solid #DEE5EE;
@@ -197,30 +220,45 @@
     }
 }
 @media (max-width:634px) {
+    .navbar{
+        justify-content: space-between;
+    }
+    
+    .bars{
+        content: url('../assets/icons8-menu.svg');
+        margin-left: 45px;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .bars:hover{
+        background-color: blanchedalmond;
+    }
     .sidebar{
         position: fixed;
-        width: 40px;
+        width: 0px;
         justify-content: center;
         overflow: hidden;
         transition: 0.5s;
         z-index: 1;
+        // display: none;
     }
-    .sidebar:hover{
-        width: 150px;
+    .sidebar.active{
+        width: 162px;
         z-index: 1;
     }
     .tabs{
         position: relative;
         right: 24px;
-        width: 172px;
+        width: 184px;
     }
     
     .details{
         
         position: fixed;
         
-        left: 60px;
-        right: -50px;
+        left: 20px;
+        right: -60px;
         // border: 1px solid black;
     }
     .i1{

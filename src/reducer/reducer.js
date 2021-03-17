@@ -1,7 +1,8 @@
-import {LOGIN} from '../action/action'
+import { MENTOR } from "../action/action";
+
 export default function tokenreducer  (state = '', action) {
     switch (action.type) {
-        case LOGIN:
+        case MENTOR:
             return {
                 state: action.payload
             };

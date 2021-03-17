@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import './mentordetails.scss'
 import LMS from '../../service/lmsservice'
+import { connect } from 'react-redux';
 
 const lms = new LMS();
 
 
-export default class mentordetails extends Component {
+class mentordetails extends Component {
     constructor(props) {
         super(props)
 
@@ -16,46 +17,15 @@ export default class mentordetails extends Component {
 
     }
 
-    handleMentor = () => {
-        console.log();
-        lms.getmentordetails(localStorage.getItem('token')).then((data) => {
-            console.log(data.data.response);
-            this.setState({ mentorarray: data.data.response })
-        }).catch((err) => {
-            console.log(err);
-        })
-
-    }
-
-    handleClickOpen = (e) => {
-        // e.stopPropagation();
-        this.setState({
-            open: !this.state.open,
-        })
-    };
-
-
-    handleChange = (event) => {
-        this.setState({
-            mentor: event.target.value
-        })
-    }
-
-
-    handleClose = () => {
-        this.setState({ open: false })
-    };
-
-   
-    
     render() {
+        console.log(this.props.mendata.state.mid);
         return (
-            <>
+            <div className='detailscontainer12'>
                 <div className='details1'>
                     <div className='hold'>
                         <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>{localStorage.getItem('mentor')}</div> <br />
-                            <div className='mid1'>{localStorage.getItem('id')}</div>
+                            <div className='name'>{this.props.mendata.state.mentor}</div> <br />
+                            <div className='mid1'>{this.props.mendata.state.mid}</div>
                         </div>
                         <div className='details-hold'>
                             <br />
@@ -64,14 +34,14 @@ export default class mentordetails extends Component {
                                 <div id='info2'> <img className='phone' alt="img" /> <div id='txt2'>1234567890</div> </div><br />
                                 <div id='info3'> <img className='address' alt="img" /> <div id='txt3'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam</div> </div>
                             </div>
-                            <br/><br/>
-                            <div className='info-1'>Total no. of Courses <div className='ct'>08</div></div><br/>
-                            <div className='info-1'>Total no. of Students <div className='ct'>{}</div></div><br/>
+                            <br /><br />
+                            <div className='info-1'>Total no. of Courses <div className='ct'>08</div></div><br />
+                            <div className='info-1'>Total no. of Students <div className='ct'>{ }</div></div><br />
 
                         </div>
 
                     </div>
-                    <div>
+                    <div className='hold01'>
                         <div className='hold0'>
                             <div className='drop'>
 
@@ -87,10 +57,16 @@ export default class mentordetails extends Component {
                                 <br />
                                 <div className='ROW'> <div className='row-first'></div> <div className='row-last'></div> </div>
                             </div>
-                        </div></div>
-                        
+                        </div>
+                    </div>
                 </div>
-            </ >
+            </div >
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        mendata: state
+    };
+};
+export default connect(mapStateToProps, null)(mentordetails);
