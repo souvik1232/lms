@@ -81,8 +81,8 @@ class student extends Component {
     target = createRef(null)
     render() {
         return (
-            <div>
-                <div className='details'>
+            <div className='detailscontainer12'>
+                <div className='details2'>
                     <div className='lac'>
                         <div className='t1'>STUDENT DETAILS</div>
                         <div className='t1-holder'>

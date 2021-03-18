@@ -67,8 +67,8 @@ export default class dashboardunique extends Component {
     };
     render() {
         return (
-            <div>
-                <div className='details2'>
+            <div className='detailscontainer12'>
+                <div className='details3'>
                     <div className='divi1'>
                         < div className='h'>
                             <div className='h-t'>Mentors - 04</div>

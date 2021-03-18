@@ -8,7 +8,7 @@ export default class studentdetail extends Component {
 
     render() {
         return (
-            <>
+            <div className='detailscontainer12'>
                 <div className='details1'>
                     <div className='hold'>
                         <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
@@ -60,7 +60,7 @@ export default class studentdetail extends Component {
                     </div>
 
                 </div>
-            </ >
+            </div >
         )
     }
 }

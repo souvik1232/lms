@@ -1,9 +1,10 @@
 .detailscontainer12{
-    border:1px solid black;
+    // border:1px solid black;
     position: fixed;
     // width: 1450px;
     // height: 1450px;
-    left: 15%;
+    left: 295px;
+    right: 45px;
     top: 13%;
     display: flex;
     overflow: auto;
@@ -20,7 +21,7 @@
     // padding: 25px;
     text-align: left;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
     flex-direction: row;
     justify-content: space-between;
     overflow-y: auto;
@@ -218,10 +219,9 @@ color:#9EBFE0;
     color: white;
     font-size: 17px;
 }
-@media (max-width:1600px) and (min-width:770px){
+@media (max-width:633px){
     .detailscontainer12{
-        
-        // left: 11px;
+        left: 25px;
+        right: 5px;
     }
-    
 }
