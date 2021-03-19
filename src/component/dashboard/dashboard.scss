@@ -62,9 +62,18 @@
     width: 20px;
     opacity: 70%;
 }
+.i5{
+    content: url('../assets/icons8-diversity-20.png');
+    
+    position: relative;
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+}
 .tabs{
     justify-content: space-evenly;
     display: flex;
+    align-items: center;
     width: 234px;
     height: 41px;
     border-left: 1px solid #DEE5EE;

@@ -1,25 +1,31 @@
 import React, { Component } from 'react'
 import './studentdetail.scss'
-import LMS from '../../service/lmsservice'
-const lms = new LMS();
+// import LMS from '../../service/lmsservice'
+import { connect } from 'react-redux';
+// const lms = new LMS();
 
 
-export default class studentdetail extends Component {
+class studentdetail extends Component {
 
     render() {
         return (
             <div className='detailscontainer12'>
+                <div className='bin23'>
+                {/* <img  alt="img"/> */}
+                </div>
                 <div className='details1'>
                     <div className='hold'>
                         <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>Student</div> <br />
-                            <div className='mid1'>Student-Id</div>
+                            <div className='name'>{this.props.studata.state.student}</div> <br />
+                            <div className='mid1'>{this.props.studata.state.sid}</div>
                         </div>
                         <div className='details-hold'>
                             <br />
                             <div className='child-hold'>
                                 <div id='info1'> <img className='mail' alt="img" /> <div id='txt1'>LoremIpsum13@bridgelabz.com</div> </div><br />
-                                <div id='info2'> <img className='phone' alt="img" /> <div id='txt2'>1234567890</div> </div><br />
+                                <div id='info2'> <img className='phone' alt="img" /> <div id='txt2'>1234567890</div> </div><br /><br/>
+                                <div id='info3'> <img className='crs' alt="img" /> <div id='txt3'>Course Name</div> </div><br />
+                                <div id='info2'> <img className='mtr' alt="img" /> <div id='txt3'>Mentor Nmae</div> </div><br />
                             </div>
                             <br />
                             <br />
@@ -64,3 +70,9 @@ export default class studentdetail extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        studata: state
+    };
+};
+export default connect(mapStateToProps, null)(studentdetail);

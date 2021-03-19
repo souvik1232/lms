@@ -14,6 +14,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Dialog from '@material-ui/core/Dialog';
 import './student.scss'
 import Addstudent from '../addstudent/addstudent'
+import {studentdata} from '../../action/action'
 import LMS from '../../service/lmsservice'
 const lms = new LMS()
 
@@ -78,6 +79,13 @@ class student extends Component {
     addstudent = () => {
 
     }
+    store = (event) => {
+        console.log(event.currentTarget.id);
+        console.log(this.state.studentarr[event.currentTarget.id]);
+        // localStorage.setItem('mentor', this.state.mentorarray[event.currentTarget.id].mentor);
+        // localStorage.setItem('id', this.state.mentorarray[event.currentTarget.id].mid);
+        this.props.studata(this.state.studentarr[event.currentTarget.id]);
+    }
     target = createRef(null)
     render() {
         return (
@@ -106,9 +114,9 @@ class student extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody className='t-body'>
-                                    {this.state.studentarr.map((data) => (
+                                    {this.state.studentarr.map((data , index) => (
                                        <TableRow className='tbr' key={data.id}>
-                                           <Link className='an' to={`/dashboard/studentdetails`}>  <TableCell id='tb' align='center' >{data.sid}</TableCell></Link>
+                                           <Link className='an' to={`/dashboard/studentdetails`}>  <TableCell id={index} align='center' onClick={(e) => this.store(e)} >{data.sid}</TableCell></Link>
                                             <TableCell id='tb' align="center">{data.student}</TableCell>
                                             <TableCell id='tb' align="center">{data.email}</TableCell>
                                             <TableCell id='tb' align="center">{data.mobile}</TableCell>
@@ -150,9 +158,7 @@ class student extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        token: state.state,
-    };
+const mapDispatchToProprs =  {
+    studata:studentdata,
 };
-export default connect(mapStateToProps, undefined)(student)
+export default connect(null, mapDispatchToProprs)(student)

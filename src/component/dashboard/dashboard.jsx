@@ -38,6 +38,7 @@ class dashboard extends Component {
         if (this.state.loggedIn === false) {
             return <Redirect to='/login' />
         }
+        // console.log('print dashboard');
         return (
             <>
                 <div className='container'>
@@ -46,7 +47,7 @@ class dashboard extends Component {
                         <Link className='a' to={`${this.props.match.path}/home`}><div className={this.state.tab ? 'tabs active' : 'tabs'} id='tab1' onClick={this.setTab} ><img className='i2' alt='img' />Dashboard</div></Link>
                         <Link className='a'  to={`${this.props.match.path}/mentor`}><div className='tabs'> <img className='i3' alt="img"/> Mentor</div></Link>
                         <Link className='a'  to={`${this.props.match.path}/student`}><div className='tabs'><img className='i4' alt="img"/> Student </div></Link>
-                        <Link className='a'  to={`${this.props.match.path}/course`}><div className='tabs'>Course </div></Link>
+                        <Link className='a'  to={`${this.props.match.path}/course`}><div className='tabs'> <img className='i5' alt="img"/>Course </div></Link>
                     </div>
                     <div className='navbar'> <img className='bars' onClick={this.showSidebar} alt=""/> <div className='profile'> <img alt=""/> </div> </div>
                 </div>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import './mentordetails.scss'
-import LMS from '../../service/lmsservice'
+// import LMS from '../../service/lmsservice'
 import { connect } from 'react-redux';
 
-const lms = new LMS();
+// const lms = new LMS();
 
 
 class mentordetails extends Component {
@@ -13,19 +13,21 @@ class mentordetails extends Component {
         this.state = {
             show: false,
             open: false,
+            drop:true,
         }
 
     }
 
     render() {
-        console.log(this.props.mendata.state.mid);
+        // console.log(this.props.mendata.mentor.mentor);
+
         return (
             <div className='detailscontainer12'>
                 <div className='details1'>
                     <div className='hold'>
                         <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>{this.props.mendata.state.mentor}</div> <br />
-                            <div className='mid1'>{this.props.mendata.state.mid}</div>
+                            <div className='name'>{this.props.mendata.mentor.mentor}</div> <br />
+                            <div className='mid1'>{this.props.mendata.mentor.mid}</div>
                         </div>
                         <div className='details-hold'>
                             <br />
@@ -44,7 +46,17 @@ class mentordetails extends Component {
                     <div className='hold01'>
                         <div className='hold0'>
                             <div className='drop'>
-
+                                <div className='drop-down-main'>dkjfbkjdf <img className={this.state.drop ? 'sort-down':'sort-up'} onClick={()=>(this.setState({drop:!this.state.drop}))} alt="img"/></div>
+                                <div className={this.state.drop ? 'drop-down-list':'drop-down-list active'}>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list'>okdjfo</div>
+                                </div>
                             </div>
                             <div className='stu-cnt'>Total Student <div className='line2'></div> <div className='count12'>0</div> </div>
                         </div>
@@ -65,6 +77,7 @@ class mentordetails extends Component {
     }
 }
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
         mendata: state
     };

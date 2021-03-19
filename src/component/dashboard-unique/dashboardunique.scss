@@ -18,23 +18,16 @@
     // overflow: visible;
 }
 .details3{
-    // position: fixed;
+    overflow-y: auto;
     padding-top: 24px;
     width: 1450px;
-    margin-right: 75px;
     left: 16%;
     display: flex;
     flex-direction: row;
-    // flex-direction: column;
     top: 15%;
-    // border: 1px solid black;
     text-align: left;
-    // display: flex;
     align-self: flex-start;
-    
     justify-content: space-between;
-    // flex-wrap: wrap;
-    // overflow: visible;
 }
 .divi1{
     background: #FFFFFF 0% 0% no-repeat padding-box;
