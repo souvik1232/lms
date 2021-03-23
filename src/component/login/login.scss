@@ -5,8 +5,9 @@
     align-items: flex-start;
 }
 .img-container{
-    // border: 1px solid black;
-    // content: url('../assets/Image\ 11@2x.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     width: 50%;
     position: relative;
@@ -17,21 +18,13 @@
     content: url('../assets/Image\ 11@2x.png');
     width: 70%;
     position: relative;
-    top: 190px;
 }
 .inputs{
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    // border: 1px solid black;
-    
     position: relative;
     top: 190px;
     left: 13%;
-    // left: 10px;
     padding: 10px;
-    // padding-left: 155px;
-    // padding-top: 155px;
     flex-direction: column;
 }
 .l1{
@@ -41,19 +34,28 @@
 .eye1{
     content: url('../assets/eye-off.svg');
     position: relative;
-    top: -35px;
-    left: 195px;
+    // top: -35px;
+    // left: 195px;
     opacity: 0.3;
     width: 20px;
     height: 20px;
-    cursor: default;
+    padding: 2px;
+    background-color:rgb(255, 255, 255) ;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.eye1:hover{
+    background-color:rgb(172, 172, 172) ;
+    opacity: 0.5;
+    transform: rotate(180deg);
+    transition: 0.5s;
 }
 #outlined-basic,#outlined-basic1{
     width: 302px;
     height: 13px;
     outline: none;
 }
-button{
+.loginbut{
     width: 329px;
     height: 53px;
     color: #ffffff;
@@ -63,6 +65,7 @@ button{
     outline: none;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .frgt{
    font-size: 12px;
@@ -75,6 +78,13 @@ button{
 }
 .hdr2{
     font-size: 12px;
+}
+.passfield{
+    width: 330px;
+}
+.Visibility:hover{
+    transform: rotate(180deg);
+    transition: 0.5s;
 }
 @media (max-width:863px){
     .img-container{
@@ -98,6 +108,9 @@ button{
     .hdr2{
         font-size: 15px;
     }
+    .passfield{
+        width: 419px;
+    }
 }
 @media (max-width:863px){
     .inputs{
@@ -112,7 +125,7 @@ button{
         height: 13px;
         // outline: none;
     }
-    button{
+    .loginbut{
         width: 410px;
     }
 }

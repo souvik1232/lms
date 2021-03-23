@@ -13,14 +13,16 @@ class studentdetail extends Component {
                 <div className='bin23'>
                 {/* <img  alt="img"/> */}
                 </div>
-                <div className='details1'>
+                <div className='details7'>
                     <div className='hold'>
-                        <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>{this.props.studata.state.student}</div> <br />
-                            <div className='mid1'>{this.props.studata.state.sid}</div>
+                        <div className='img-holdd'><br /> <img className='img-men' alt="img" /><br />
+                            <div className='name'>{this.props.studata.student}</div> <br />
+                            <div className='mid1'>{this.props.studata.sid}</div>
                         </div>
                         <div className='details-hold'>
+                            
                             <br />
+                            
                             <div className='child-hold'>
                                 <div id='info1'> <img className='mail' alt="img" /> <div id='txt1'>LoremIpsum13@bridgelabz.com</div> </div><br />
                                 <div id='info2'> <img className='phone' alt="img" /> <div id='txt2'>1234567890</div> </div><br /><br/>
@@ -72,7 +74,7 @@ class studentdetail extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        studata: state
+        studata: state.student
     };
 };
 export default connect(mapStateToProps, null)(studentdetail);

@@ -1,3 +1,27 @@
+.details7{
+    border: 1px solid #E2E2E2;
+    border-radius: 20px;
+    background: #FAFAFA 0% 0% no-repeat padding-box;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow-y: auto;
+}
+.img-holdd{
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 292px;
+    height: 218px;
+    background: #12324B 0% 0% no-repeat padding-box;
+    border-radius: 20px 0px 0px 0px;
+    opacity: 1;
+    padding: 10px;
+    // border:1px solid black;
+    
+}
 .holdd{
     padding: 25px;
     display: flex;
@@ -9,12 +33,7 @@
 .stddet{
     margin-left: 45px;
 }
-// .bin23{
-//     // content: url('../assets/icons8-trash-can-24\ \(1\).png');
-//     width: 25px;
-//     padding: 25px;
-//     border-radius: 50px;
-// }
+
 .cntct{
     background: #FAFAFA 0% 0% no-repeat padding-box;
 border: 1px solid #DEDEDE;
@@ -70,4 +89,30 @@ padding-top: 5px;
     color: #525764;
     display: flex;
     justify-content: space-between;
+}
+@media (max-width:960px){
+    .details7{
+        display: flex;
+        flex-direction: column;
+        height: 710px;
+    }
+    .holdd{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+    .stddet{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .educat{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .img-holdd{
+        width: auto;
+    }
+    .details-hold{
+        width: auto;
+    }
 }

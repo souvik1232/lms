@@ -16,6 +16,7 @@ function RRouter() {
         <Router>
           <div>
             {/* <Switch> */}
+            <Route path='/menteedetails' exact component={mentordetails}/>
             <AuthRoute path="/login" exact component={Login} />
             <Route path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/dashboard/home" component={home} />

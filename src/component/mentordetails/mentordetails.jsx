@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import './mentordetails.scss'
-// import LMS from '../../service/lmsservice'
 import { connect } from 'react-redux';
-
-// const lms = new LMS();
 
 
 class mentordetails extends Component {
@@ -14,21 +11,23 @@ class mentordetails extends Component {
             show: false,
             open: false,
             drop:true,
+            value:'',
         }
 
     }
 
     render() {
-        // console.log(this.props.mendata.mentor.mentor);
 
         return (
             <div className='detailscontainer12'>
                 <div className='details1'>
                     <div className='hold'>
                         <div className='img-hold'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>{this.props.mendata.mentor.mentor}</div> <br />
-                            <div className='mid1'>{this.props.mendata.mentor.mid}</div>
+                            <div className='name'>{localStorage.getItem('mentor')}</div> <br />
+                            <div className='mid1'>{localStorage.getItem('id')}</div>
                         </div>
+                        {/* {this.props.mendata.mentor.mentor} */}
+                        {/* {this.props.mendata.mentor.mid} */}
                         <div className='details-hold'>
                             <br />
                             <div className='child-hold'>
@@ -46,9 +45,9 @@ class mentordetails extends Component {
                     <div className='hold01'>
                         <div className='hold0'>
                             <div className='drop'>
-                                <div className='drop-down-main'>dkjfbkjdf <img className={this.state.drop ? 'sort-down':'sort-up'} onClick={()=>(this.setState({drop:!this.state.drop}))} alt="img"/></div>
+                                <div className='drop-down-main'>{this.state.value} <img className={this.state.drop ? 'sort-down':'sort-up'} onClick={()=>(this.setState({drop:!this.state.drop}))} alt="img"/></div>
                                 <div className={this.state.drop ? 'drop-down-list':'drop-down-list active'}>
-                                    <div className='down-list'>okdjfo</div>
+                                    <div className='down-list' onClick={()=>(this.setState({value:'okdjfosdf'}))}>okdjdffdfo</div>
                                     <div className='down-list'>okdjfo</div>
                                     <div className='down-list'>okdjfo</div>
                                     <div className='down-list'>okdjfo</div>

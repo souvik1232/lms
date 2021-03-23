@@ -16,8 +16,14 @@ export default class addstudent extends Component {
 
         this.state = {
             name: '',
+            nameerror: '',
+            nameflag: false,
             email: '',
+            emailerror: '',
+            emailflag: false,
             mobile: '',
+            mobileerror: '',
+            mobileflag: false,
             studentarr: [],
             show: false,
             open: false,
@@ -49,6 +55,39 @@ export default class addstudent extends Component {
     handleClose = () => {
         this.setState({ open: false })
     };
+
+    formValidation = () => {
+        const name = this.state.name;
+        const email = this.state.email;
+        const mobile = this.state.mobile;
+        let isValid = true;
+        let nameerror = '';
+        let emailerror = '';
+        let mobileerror = '';
+        if (name.trim().length < 8) {
+            nameerror = 'Too short';
+            isValid = false;
+            this.setState({ nameflag: true })
+        } else {
+            this.setState({ nameflag: false })
+        }
+        if (email.trim().length < 8) {
+            emailerror = 'Too short';
+            isValid = false;
+            this.setState({ emailflag: true })
+        } else {
+            this.setState({ emailflag: false })
+        }
+        if (mobile.trim().length < 8) {
+            mobileerror = 'Too short';
+            isValid = false;
+            this.setState({ mobileflag: true })
+        } else {
+            this.setState({ mobileflag: false })
+        }
+        this.setState({nameerror, emailerror, mobileerror });
+        return isValid;
+    }
     render() {
         return (
             <div className='dig-container'>
