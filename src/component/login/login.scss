@@ -15,9 +15,10 @@
     
 }
 .img1{
-    content: url('../assets/Image\ 11@2x.png');
+    // content: url('../assets/Image.png');
     width: 70%;
     position: relative;
+    left: 60px;
 }
 .inputs{
     text-align: center;
@@ -30,6 +31,11 @@
 .l1{
     content: url('../assets/BridgeLabzVirtual@2x.png');
     width: 78px;
+}
+.inpt1{
+    position: fixed;
+    // border: 1px solid black;
+    width: auto;
 }
 .eye1{
     content: url('../assets/eye-off.svg');
@@ -55,6 +61,7 @@
     height: 13px;
     outline: none;
 }
+
 .loginbut{
     width: 329px;
     height: 53px;
@@ -66,6 +73,10 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.6s;
+}
+.loginbut:hover{
+    background:linear-gradient(180deg,#008CFF,#55e7fc);
 }
 .frgt{
    font-size: 12px;
@@ -83,8 +94,8 @@
     width: 330px;
 }
 .Visibility:hover{
-    transform: rotate(180deg);
-    transition: 0.5s;
+    transform: rotate(360deg);
+    transition: 1s;
 }
 @media (max-width:863px){
     .img-container{
@@ -92,7 +103,8 @@
     }
     .login{
         align-items: flex-start;
-        height: 900px;
+        height: 880px;
+        justify-content: center;
     }
     .inputs{
         flex-direction: column;
@@ -119,11 +131,12 @@
         margin-left: -30px;
         margin-right: 5px;
         margin-top: -20px;
+        left: 0;
     }
     #outlined-basic,#outlined-basic1{
         width: 390px;
         height: 13px;
-        // outline: none;
+        outline: none !important;
     }
     .loginbut{
         width: 410px;
@@ -132,5 +145,8 @@
 @media (max-width:500px){
     .login{
         background-color: white;
+    }
+    .inputs{
+        left: 11%;
     }
 }

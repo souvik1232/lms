@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Suspense } from 'react';
 import {
     ThemeProvider,
     createMuiTheme,
@@ -12,6 +12,11 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { isemailValid, ispasswordValid } from '../utility/utility';
+import Image from '../assets/Image.png'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+// const Image = React.lazy(() => import('../assets/Image.png'));
 const loginlms = new Login();
 class login extends Component {
     constructor(props) {
@@ -44,20 +49,22 @@ class login extends Component {
     }
 
     formValidation = () => {
+        
         const username = this.state.username;
         const password = this.state.password;
         let isValid = true;
         let usernameerrors = '';
         let passworderrors = '';
-        if (username.trim().length < 6) {
-            usernameerrors = 'Too short';
+        
+        if (!isemailValid(username)) {
+            usernameerrors = 'Not valid';
             isValid = false;
             this.setState({ usernameflag: true })
         } else {
             this.setState({ usernameflag: false })
         }
-        if (password.trim().length < 8) {
-            passworderrors = 'Too short';
+        if (!ispasswordValid(password)) {
+            passworderrors = 'Not Valid';
             isValid = false;
             this.setState({ passwordflag: true })
         } else {
@@ -88,14 +95,9 @@ class login extends Component {
                 this.setState({ snackbaropen: true, snackbarmsg: 'error' })
             })
         }
-
-        //     .then(response => {
-        //        console.log(response.headers.get("authorization"));
-        //     })
-        //     .catch(error => {
-        //        console.log(error)
-        //     });
-        // }
+    }
+    returnimage = ()=>{
+        return (<img src={Image} alt='img'/>)
     }
     theme = createMuiTheme({
         palette: {
@@ -107,26 +109,29 @@ class login extends Component {
 
 
     render() {
+        console.log(Image);
         if (this.state.loggedIn) {
             return <Redirect to='/dashboard/home' />
         }
+        
         return (
             <div className='login'>
-                <div className="img-container"><img className='img1' alt='' /></div>
+                <div className="img-container"><LazyLoadImage className='img1' src={Image} alt='img' effect='blur'/></div>
+                {/* <div className="img-container"><img className='img1'src={Image} alt='img' /></div> */}
                 <div className='inputs'>
                     <img className='l1' alt='' /><br />
                     <span className='hdr1'>Welcome back!</span><br />
                     <span className='hdr2'>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed <br />diam nonumyundefined</span><br /><br /><br />
                     <ThemeProvider theme={this.theme}>
-                        <TextField
+                        <div className='inpt1'><TextField
                             id="outlined-basic"
                             label="Email"
                             variant="outlined"
                             error={this.state.usernameflag}
                             helperText={this.state.usernameerrors}
-                            onChange={(e) => { this.setState({ username: e.target.value }) }} />
-                        <br /><br />
-                        <TextField
+                            onChange={(e) => { this.setState({ username: e.target.value }) }} /></div>
+                        <br /><br /><br/> <br/>
+                        <div className='inpt1'><TextField
                             className='passfield'
                             type='password'
                             id="outlined-basic1"
@@ -139,7 +144,7 @@ class login extends Component {
                                 endAdornment: (
                                     <InputAdornment position="end">
                                         <IconButton
-                                        className='Visibility'
+                                            className='Visibility'
                                             aria-label="toggle password visibility"
                                             onClick={this.showpass}
                                             edge="end"
@@ -149,11 +154,11 @@ class login extends Component {
                                     </InputAdornment>
                                 )
                             }}
-                        /><br />
+                        /></div><br />
                         {/* <img className='eye1' onClick={this.showpass} alt='img' /> */}
 
                     </ThemeProvider>
-
+                            <br/><br/>
                     <span className='frgt'>Forgot Password?</span><br /><br />
                     <button className='loginbut' onClick={this.handlelogin}>Login</button>
                 </div>
@@ -163,7 +168,6 @@ class login extends Component {
                     autoHideDuration={2000}
                     onClose={this.snackbarClose}
                     message={<span id="message-id">{this.state.snackbarmsg}</span>}
-                // action
                 />
 
             </div>

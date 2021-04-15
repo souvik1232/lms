@@ -14,6 +14,13 @@ export default class Axios{
             }
         })
     }
+    PUT(url,data,token){
+        return axios.put(baseurl1+url,data,{
+            headers: {
+                'Authorization': token, 
+            }
+        })
+    }
     Get(url,token){
         return axios.get(baseurl1+url,{
             headers: {

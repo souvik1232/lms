@@ -26,8 +26,8 @@ class mentordetails extends Component {
                             <div className='name'>{localStorage.getItem('mentor')}</div> <br />
                             <div className='mid1'>{localStorage.getItem('id')}</div>
                         </div>
-                        {/* {this.props.mendata.mentor.mentor} */}
-                        {/* {this.props.mendata.mentor.mid} */}
+                        {/* {this.props.mendata.mentor.mentor}
+                        {this.props.mendata.mentor.mid} */}
                         <div className='details-hold'>
                             <br />
                             <div className='child-hold'>
@@ -66,7 +66,9 @@ class mentordetails extends Component {
                                     <div className='txt1'>Current Score</div>
                                 </div>
                                 <br />
-                                <div className='ROW'> <div className='row-first'></div> <div className='row-last'></div> </div>
+                                <div className='ROW'> <div className='row-first'>Abhas</div> <div className='row-last'>4.5/5</div> </div><br/>
+                                <div className='ROW'> <div className='row-first'>Abhas</div> <div className='row-last'>4.5/5</div> </div><br/>
+                                <div className='ROW'> <div className='row-first'>Abhas</div> <div className='row-last'>4.5/5</div> </div><br/>
                             </div>
                         </div>
                     </div>

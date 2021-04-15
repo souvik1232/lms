@@ -29,7 +29,7 @@ export default class home extends Component {
         //     return <Redirect to='/login' />
         // }
         return (
-            <div>
+            <>
                 <div className='details'>
                     <div className='t1'>DASHBOARD DETAILS</div>
                     <div className='ol'>
@@ -69,7 +69,7 @@ export default class home extends Component {
                         </Tooltip>
                     )}
                 </Overlay>
-            </div>
+            </>
         )
     }
 }

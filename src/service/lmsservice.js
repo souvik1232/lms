@@ -21,6 +21,10 @@ class LmsService {
     addcourse = (token, data) => {
         return axiosService.POST('course/', data, token)
     }
+    updatecourse = (token,data,course_id)=>{
+        console.log(`course/${course_id}`);
+        return axiosService.PUT(`course/${course_id}/`, data, token)
+    }
     addmentor = (token, data) => {
         return axiosService.POST('mentor/', data, token)
     }

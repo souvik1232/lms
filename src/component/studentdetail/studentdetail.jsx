@@ -16,11 +16,12 @@ class studentdetail extends Component {
                 <div className='details7'>
                     <div className='hold'>
                         <div className='img-holdd'><br /> <img className='img-men' alt="img" /><br />
-                            <div className='name'>{this.props.studata.student}</div> <br />
-                            <div className='mid1'>{this.props.studata.sid}</div>
+                            <div className='name'></div> <br />
+                            <div className='mid1'></div>
                         </div>
                         <div className='details-hold'>
-                            
+                        {/* {this.props.studata.student}
+                        {this.props.studata.sid} */}
                             <br />
                             
                             <div className='child-hold'>

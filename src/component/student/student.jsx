@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
 import {
-    createMuiTheme,
+    createMuiTheme, StylesProvider,
 } from '@material-ui/core/styles';
 import { connect } from 'react-redux'
 import Table from '@material-ui/core/Table';
@@ -14,7 +14,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Dialog from '@material-ui/core/Dialog';
 import './student.scss'
 import Addstudent from '../addstudent/addstudent'
-import {studentdata} from '../../action/action'
+import history from '../../component/history'
+import { studentdata } from '../../action/action'
 import LMS from '../../service/lmsservice'
 const lms = new LMS()
 
@@ -82,11 +83,14 @@ class student extends Component {
     store = (event) => {
         console.log(event.currentTarget.id);
         console.log(this.state.studentarr[event.currentTarget.id]);
-        // localStorage.setItem('mentor', this.state.mentorarray[event.currentTarget.id].mentor);
-        // localStorage.setItem('id', this.state.mentorarray[event.currentTarget.id].mid);
-        this.props.studata(this.state.studentarr[event.currentTarget.id]);
+        history.push('/dashboard/studentdetails')
     }
     target = createRef(null)
+
+
+    redirect=()=>{
+        history.push('/dashboard/studentdetails')
+    }
     render() {
         return (
             <div className='detailscontainer12'>
@@ -103,7 +107,7 @@ class student extends Component {
                             <Table className='main-table' aria-label="customized table">
                                 <TableHead className='t-head'>
                                     <TableRow>
-                                        <TableCell id='th' align="center">Student ID</TableCell>
+                                        <TableCell className='Tabhdr' id='th' align="center">Student ID</TableCell>
                                         <TableCell id='th' align="center">Name</TableCell>
                                         <TableCell id='th' align="center">Email ID</TableCell>
                                         <TableCell id='th' align="center">Mobile No.</TableCell>
@@ -114,10 +118,10 @@ class student extends Component {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody className='t-body'>
-                                    {this.state.studentarr.map((data , index) => (
-                                       <TableRow className='tbr' key={data.id}>
-                                           <Link className='an' to={`/dashboard/studentdetails`}>  <TableCell id={index} align='center' onClick={(e) => this.store(e)} >{data.sid}</TableCell></Link>
-                                            <TableCell id='tb' align="center">{data.student}</TableCell>
+                                    {this.state.studentarr.map((data, index) => (
+                                        <TableRow className='tbr' key={data.id}>
+                                            <TableCell id={index} align='center' onClick={(e) => this.store(e)} >{data.sid}</TableCell>
+                                            <TableCell className='Tabcel' id='tb' align="center">{data.student}</TableCell>
                                             <TableCell id='tb' align="center">{data.email}</TableCell>
                                             <TableCell id='tb' align="center">{data.mobile}</TableCell>
                                             <TableCell id='tb' align="center">{data.course}</TableCell>
@@ -130,9 +134,11 @@ class student extends Component {
                             </Table>
                         </TableContainer>
                     </div>
-                    <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
-                        <Addstudent close={this.handleClose}/>
-                    </Dialog>
+                    <StylesProvider injectFirst>
+                        <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open} >
+                            <Addstudent close={this.handleClose} />
+                        </Dialog>
+                    </StylesProvider>
                     <Dialog onClose={this.handleCloseMod} aria-labelledby="customized-dialog-title" open={this.state.openmod} >
                         <div className='md12'>
                             <div className='hd12'>
@@ -147,18 +153,18 @@ class student extends Component {
                                 </div>
                                 <div className='bd-2'>No file choosen</div>
                             </div>
-                            <br/>
+                            <br />
                             <div className='ft12'>
-                                <button className='upload12'><img className='cloud' alt=""/>  Upload</button>
+                                <button className='upload12'><img className='cloud' alt="img" />  Upload</button>
                             </div>
-                        </div> 
+                        </div>
                     </Dialog>
                 </div>
             </div >
         )
     }
 }
-const mapDispatchToProprs =  {
-    studata:studentdata,
+const mapDispatchToProprs = {
+    studata: studentdata,
 };
-export default connect(null, mapDispatchToProprs)(student)
+export default student

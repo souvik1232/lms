@@ -35,9 +35,9 @@ class dashboard extends Component {
     
     target = createRef(null)
     render() {
-        if (this.state.loggedIn === false) {
-            return <Redirect to='/login' />
-        }
+        // if (this.state.loggedIn === false) {
+        //     return <Redirect to='/login' />
+        // }
         // console.log('print dashboard');
         return (
             <>

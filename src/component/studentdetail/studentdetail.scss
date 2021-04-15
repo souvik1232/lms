@@ -90,7 +90,7 @@ padding-top: 5px;
     display: flex;
     justify-content: space-between;
 }
-@media (max-width:960px){
+@media (max-width:1024px){
     .details7{
         display: flex;
         flex-direction: column;
@@ -114,5 +114,23 @@ padding-top: 5px;
     }
     .details-hold{
         width: auto;
+    }
+}
+@media (max-width:375px){
+    .stddet{
+        margin-top: 15px;
+    }
+    .holdd{
+        padding: 0px;
+    }
+    .cntct,.addrs,.educat{
+        width: 291px;
+    }
+    .addrs{
+        height: auto;
+    }
+    .educat{
+        height: auto;
+        margin-top: 15px;
     }
 }

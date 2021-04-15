@@ -1,6 +1,6 @@
-.text{
-    // overflow: hidden;
-    // border: 1px solid black;
+.MuiDialog-paper{
+    overflow: visible;
+    border-radius: 20px;
 }
 .card-mentor{
     border-radius: 4px;
@@ -20,6 +20,11 @@
     position: relative;
     font-size: 12px;
     font-weight: lighter;
+    outline: none;
+    border: none;
+    background-color: #008CFF;
+    color: #ffffff;
+    border-radius: 5px;
     // top: -60px;
     // left: 1270px;
     width: 105px;
@@ -46,13 +51,17 @@
     overflow: auto;
     // padding: 20px;
     justify-content: space-between;
-    // position: relative;
     height: 740px;
-    // justify-content: flex-end;
 }
-.lac{
+.details .lac{
     display: flex;
     justify-content: space-between;
+    width: 1550px;
+}
+.details2 .lac{
+    display: flex;
+    justify-content: space-between;
+    width: 1550px;
 }
 .dot1{
     content: url('../assets/ic_more_vert_24px.svg');
@@ -79,7 +88,7 @@
     color: white;
     font-size: 18px;
     position: relative;
-    top: -15px;
+    top: -55px;
     z-index: 1;
     left: 41px;
 }
@@ -89,6 +98,13 @@
     padding-right: 60px;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+.progress{
+    // border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1550px;
 }
 #outlined-basic2{
     width: 300px;
@@ -110,6 +126,9 @@
     font-size: 18px;
     font-weight: 100;
     cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
 }
 .bu2{
     background: #008CFF 0% 0% no-repeat padding-box;
@@ -120,29 +139,29 @@
     font-size: 18px;
     font-weight: 100;
     cursor: pointer;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
 }
+
 #simple-menu{
-    // z-index: 1;
     width: 200px;
 }
 #outlined-basic-drop{
     width: 285px;
-    height: 17px;
-    padding:10px 22px 10px 22px;
-    display: flex;
-    
+    padding:0px 22px 0px 22px; 
+    height: 45px;
 }
 .card-head{
     font-size: 17px;
-    
 }
 .mid{
-    // background: #40494D 0% 0% no-repeat padding-box;
-border-radius: 2px;
-opacity: 1;
-color:#648190;
-font-size: 13px;
-font-weight: 100;
+    border-radius: 2px;
+    opacity: 1;
+    color:#648190;
+    font-size: 13px;
+    font-weight: 100;
 }
 .line1{
     border:1px solid#DEE5EE;
@@ -189,6 +208,9 @@ font-weight: 100;
     padding-top: 5px;
     padding-left: 5px;
 }
+.text{
+    cursor: pointer;
+}
 .scount{
     // border: 1px solid black;
     padding-left: 9px;
@@ -203,7 +225,26 @@ font-weight: 100;
     width: 138px;
     height: 83px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-box-shadow: 0px 3px 6px #00000029;
-border: 1px solid #F2F5F7;
-opacity: 1;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #F2F5F7;
+    opacity: 1;
+}
+@media (max-width:1024px){
+    .MuiDialog-paper{
+        position: relative;
+        top: -180px;
+    }
+    .details .lac{
+        width: 700px;
+    }
+}
+@media (max-width:768px){
+    .MuiDialog-paper{
+        top: 0px;
+    }
+}
+@media (max-width: 375px){
+    .details .lac {
+    width: 310px;
+    }
 }

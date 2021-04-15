@@ -17,7 +17,7 @@
     background-color: #FFFFFF;
 }
 .tbl-cnt{
-    width: 1500px;
+    width: 1550px;
     // border: 1px solid black;
 }
 .upload{
@@ -119,12 +119,58 @@ color: #4A584D;
     // background: #FFFFFF ;
     justify-content: center;
     cursor: pointer;
-border-radius: 3px;
-opacity: 0.32;
-width: 115px;
-height: 35px;
-font-size: 15px;
+    border-radius: 3px;
+    opacity: 0.32;
+    width: 115px;
+    height: 35px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    background: #008CFF 0% 0% no-repeat padding-box;
+}
+.upload12:hover{
+    transition: 0.5s;
+    box-shadow: 0px 15px 20px rgba(161, 165, 163, 0.774);
+    opacity:1
 }
 .cloud{
     content: url('../assets/icons8-upload-to-cloud-20.png');
+}
+@media (max-width:1024px){
+    .lac{
+        width:700px
+    }
+    .tbl-cnt{
+        width:720px
+    }
+    .details2 .lac{
+        width:720px
+    }
+}
+@media (max-width:768px){
+    .details2{
+       position: relative;
+       right: 65px;
+    }
+}
+@media (max-width:375px){
+    .lac{
+        width: 310px;
+    }
+    .details2 .lac{
+        position: fixed;
+        width: 310px;
+    }
+
+    .details2{
+        // border: 1px solid black;
+        position: relative;
+        width: 100%;
+        right: 0px;
+        overflow: auto;
+        border-top-left-radius: 105px;
+        border-top-right-radius:105px;
+    }
 }

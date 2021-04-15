@@ -1,8 +1,7 @@
+
 .details2{
     padding-top: 24px;
     width: 1450px;
-    margin-right: 75px;
-    left: 16%;
     display: flex;
     flex-direction: column;
     top: 15%;
@@ -11,7 +10,7 @@
     justify-content: space-between;
 }
 .details3{
-    overflow-y: auto;
+    overflow-y: hidden;
     padding-top: 24px;
     height: 670px;
     // width: 1450px;
@@ -46,11 +45,29 @@
     overflow: auto;
     margin-left: 85px;
 }
-.h{
+.divi1 .h{
+    position: fixed;
+    z-index: 999;
+    background-color: white;
+    width: 800px;
+    height: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    top: 148px;
+}
+.divi2 .h{
+    position: fixed;
+    z-index: 999;
+    background-color: #FCFCFC;
+    width: 450px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    top: 148px;
 }
 .h-t{
     color: #12324B;
@@ -63,6 +80,11 @@
     width: 105px;
     height: 35px;
     cursor: pointer;
+    outline: none;
+    border: none;
+    background: #008CFF 0% 0% no-repeat padding-box;
+    color: #ffffff;
+    border-radius: 5px;
 }
 .f{
     padding:5px;
@@ -123,10 +145,14 @@
     top: 9px;
     align-self: flex-end;
 }
-@media (max-width:1000px){
+@media (max-width:1024px){
+    .detailscontainer12{
+        top: 10%;
+    }
     .details3{
         flex-direction: column;
         height: 700px;
+        
     }
     .divi1{
         width: auto;
@@ -135,10 +161,86 @@
         width: auto;
         margin-left: 0px;
     }
+    .divi1 .h{
+        position: fixed;
+        z-index: 999;
+        background-color: white;
+        width: 650px;
+        top:162px;
+        height: 50px;
+    }
+    .divi2 .h{
+        position: fixed;
+        width: 550px;
+        z-index: 999;
+        background-color: #FCFCFC;
+        width: 650px;
+        top: 699px;
+        height: 50px;
+    }
+    .st{
+        width: 609px;
+    }
 }
-@media (max-height:738px){
+@media (max-width:770px){
+    .divi1{
+
+    }
+    
+    .divi1 .h{
+        position: fixed;
+        z-index: 999;
+        background-color: white;
+        width: 550px;
+        top: 128px;
+        height: 50px;
+    }
+    .divi2 .h{
+        position: fixed;
+        width: 550px;
+        z-index: 999;
+        background-color: #FCFCFC;
+        width: 550px;
+        top: 688px;
+        height: 50px;
+    }
+    
+}
+@media (max-width:375px){
+    
+    .divi1 .h{
+        position: fixed;
+        z-index: 999;
+        background-color: white;
+        width: 270px;
+        top: 107px;
+        height: 50px;
+    }
+    .divi2 .h{
+        position: fixed;
+        width: 550px;
+        z-index: 999;
+        background-color: #FCFCFC;
+        width: 270px;
+        top: 698px;
+        height: 50px;
+    }
+    
+}
+@media (max-height:770px){
     .details3{
         height: 520px;
+    }
+    .divi1 .h{
+        position: fixed;
+        z-index: 999;
+        background-color: white;
+        width: 550px;
+        top: 128px;
+        height: 50px;
+    }
+    .divi2 .h{
+        position: fixed;
     }
     
 }

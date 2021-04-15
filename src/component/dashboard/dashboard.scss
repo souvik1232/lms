@@ -224,8 +224,35 @@
     .details{
         display: flex;
         position:fixed;
-        left: 250px;
+        left: 50px;
         flex-direction: column; 
+    }
+    .navbar{
+        justify-content: space-between;
+    }
+    .sidebar{
+        position: fixed;
+        width: 0px;
+        justify-content: center;
+        overflow: hidden;
+        transition: 0.5s;
+        z-index: 1;
+        box-shadow: 5px 5px 12px #888888;
+        // display: none;
+    }
+    .sidebar.active{
+        width: 232px;
+        z-index: 1;
+    }
+    .bars{
+        content: url('../assets/icons8-menu.svg');
+        margin-left: 45px;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .bars:hover{
+        background-color: blanchedalmond;
     }
 }
 @media (max-width:634px) {
